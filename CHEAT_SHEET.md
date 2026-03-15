@@ -1,0 +1,66 @@
+# 💻 Bash & Linux Command Cheat Sheet
+
+This document serves as a quick reference guide for all the command-line tools, utilities, and shortcuts learned throughout the course. I update this list as I progress through new modules.
+
+## 📁 1. Navigation & Directory Operations
+| Command | Common Flags & Meanings | Description | Example |
+| :--- | :--- | :--- | :--- |
+| `pwd` | *None* | Print working directory (current path). | `pwd` |
+| `ls` | `-a` (show hidden/all) | List directory contents. | `ls -a` |
+| `cd` | `-` (jump to previous dir)<br> `..` (jump to parent dir) | Change directory. | `cd /var/log` |
+
+## 📝 2. File Manipulation
+| Command | Common Flags & Meanings | Description | Example |
+| :--- | :--- | :--- | :--- |
+| `touch` | *None* | Create an empty file or update timestamps. | `touch new_script.sh` |
+| `rm` | `-i` (interactive/ask first)| Remove files or directories. | `rm -i file1.txt` |
+| `mv` | *None* | Move or rename files/directories. | `mv old.txt new.txt` |
+| `cp` | *None* | Copy files or directories. | `cp file.txt /backup/` |
+
+## 🔍 3. Text Processing & Searching
+| Command | Common Flags & Meanings | Description | Example |
+| :--- | :--- | :--- | :--- |
+| `cat` | *None* | Print the content of a file to the terminal. | `cat config.json` |
+| `echo` | *None* | Print text to the terminal. <br> used with `>` for overwriting <br> used with `>>` for appending | `echo "Hello" >> log.txt` |
+| `grep` | `-i` (case-insensitive)<br>`-o` (only matching text)<br>`-A N` (show N lines After)<br>`-B N` (show N lines Before)<br> `-C N`(show N lines Before and After) | Search for specific patterns within files. | `grep -i "error" log.txt` |
+| `less` | `/pattern` (search forward)<br>`n` (next match)<br>`Shift+n` (previous match) <br>`q` (quit) <br>`k`, `j`, `Up/Down Arrows` (move up and down) | Page through output or large files interactively. | `less massive_data.csv` |
+| `more` | same as `less` | same as `less` | `more massive_data.csv` |
+
+## ⌨️ 4. Terminal Shortcuts & History
+| Shortcut / Command | Description |
+| :--- | :--- |
+| `CTRL + L` | Clears the terminal screen (same as `clear` command). |
+| `clear` | Clears the terminal screen |
+| `Up / Down Arrows` | Navigate back and forth through the command history. |
+| `TAB` | Autocompletes commands, file names, or directory names. |
+| `history` | Prints the entire history of executed commands. |
+
+## 🃏 5. Globbing & Regular Expressions
+
+### Shell Globbing (File Name Matching)
+| Wildcard | Description | Example |
+| :--- | :--- | :--- |
+| `*` (Asterisk) | Matches zero or more characters of any type. Useful for acting on multiple files at once. | `rm *.txt` (removes all .txt files)<br>`ls doc*` (lists files starting with "doc") |
+
+### Basic Regular Expressions (Text Matching)
+| Symbol | Description | Example |
+| :--- | :--- | :--- |
+| `^` (Caret) | Matches the beginning of the line | `grep '^error' log.txt` (finds lines starting with "error") |
+| `$` (Dollar) | Matches the end of the line | `grep 'done$' log.txt` (finds lines ending with "done") |
+| `.` (Dot) | Matches exactly 1 character | `grep 'd.g' file.txt` (finds "dog", "dig", "dug") |
+
+## ⚙️ 6. Scripting Fundamentals (Coming Soon)
+| Command | Common Flags & Meanings | Description | Example |
+| :--- | :--- | :--- | :--- |
+| `chmod` | `+x` (make executable)<br>`-R` (recursive) | Change file/directory permissions. | `chmod +x script.sh` |
+
+
+## ⚙️ 7. Environment & Shell Customization
+| Command | Common Flags & Meanings | Description | Example |
+| :--- | :--- | :--- | :--- |
+| `alias` | `name="cmd"` (create shortcut)<br>`-p` (print all aliases) | Create a custom shortcut for a command. | `alias update="sudo apt update"` |
+| `unalias` | *None* | Remove a previously created alias. | `unalias update` |
+| *(more to be added)* | | | |
+
+---
+*Note: This cheat sheet is a living document and will expand as I cover more advanced topics like awk, sed, find, and specific bash parameters.*
