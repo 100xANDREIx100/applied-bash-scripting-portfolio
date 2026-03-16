@@ -16,6 +16,7 @@ This document serves as a quick reference guide for all the command-line tools, 
 | `rm` | `-i` (interactive/ask first)| Remove files or directories. | `rm -i file1.txt` |
 | `mv` | *None* | Move or rename files/directories. | `mv old.txt new.txt` |
 | `cp` | *None* | Copy files or directories. | `cp file.txt /backup/` |
+| `file` | *None* | Determine the true file type based on its contents (magic bytes), ignoring the extension. | `file script.txt` |
 
 ## 🔍 3. Text Processing & Searching
 | Command | Common Flags & Meanings | Description | Example |
@@ -25,6 +26,7 @@ This document serves as a quick reference guide for all the command-line tools, 
 | `grep` | `-i` (case-insensitive)<br>`-o` (only matching text)<br>`-A N` (show N lines After)<br>`-B N` (show N lines Before)<br> `-C N`(show N lines Before and After) | Search for specific patterns within files. | `grep -i "error" log.txt` |
 | `less` | `/pattern` (search forward)<br>`n` (next match)<br>`Shift+n` (previous match) <br>`q` (quit) <br>`k`, `j`, `Up/Down Arrows` (move up and down) | Page through output or large files interactively. | `less massive_data.csv` |
 | `more` | same as `less` | same as `less` | `more massive_data.csv` |
+| `tr` | `-d` (delete characters) | Translate, or delete characters from standard input. | `cat log.txt \| tr 'a-z' 'A-Z'` |
 
 ## ⌨️ 4. Terminal Shortcuts & History
 | Shortcut / Command | Description |
@@ -61,6 +63,15 @@ This document serves as a quick reference guide for all the command-line tools, 
 | `alias` | `name="cmd"` (create shortcut)<br>`-p` (print all aliases) | Create a custom shortcut for a command. | `alias update="sudo apt update"` |
 | `unalias` | *None* | Remove a previously created alias. | `unalias update` |
 | *(more to be added)* | | | |
+
+## 📚 8. Help & Command Identification
+| Command | Common Flags & Meanings | Description | Example |
+| :--- | :--- | :--- | :--- |
+| `man` | `N` (specific section)<br>`-f` (short desc & section) | Open the manual for an external command. | `man 5 passwd`<br>`man man` |
+| `help` | *None* | Get documentation for Bash **built-in** commands. | `help cd` |
+| `which` | *None* | Locate the executable file of an external command on the system. | `which grep` |
+| `type` | `-a` (show all locations and types) | Identify if a command is a built-in, an alias, or an external file. | `type -a echo` |
+| `compgen` | `-b` (list all built-ins) | List available commands or built-ins. | `compgen -b` |
 
 ---
 *Note: This cheat sheet is a living document and will expand as I cover more advanced topics like awk, sed, find, and specific bash parameters.*

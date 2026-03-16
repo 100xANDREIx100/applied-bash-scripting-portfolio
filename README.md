@@ -35,8 +35,8 @@ Once the `scripts/` directories are populated, you can run any of the Bash scrip
 - [x] 01-04 Paging Files
 
 **Section 02: Core Tooling & Concepts**
-- [ ] 02-00 Man Pages
-- [ ] 02-01 Programs and Commands
+- [x] 02-00 Man Pages
+- [x] 02-01 Programs and Commands
 - [ ] 02-02 Basic Variables
 - [ ] 02-03 vim Crash Course
 - [ ] 02-04 File Permissions
