@@ -1,0 +1,10 @@
+My first vim file!
+
+yay!
+
+
+
+text
+
+
+hello
