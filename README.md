@@ -5,6 +5,8 @@
 
 This repository documents my journey mastering Linux shell scripting and system administration, following the intensive 7-hour [The Complete Bash Scripting Course](https://youtu.be/Sx9zG7wa4FA) by Dave Eddie. 
 
+**Side-Quest Update:** To complement my command-line skills, I have expanded this portfolio to include mastering the ubiquitous terminal text editor, `vim`. This progress is tracked following the comprehensive [Vim Tutorial for Beginners](https://youtu.be/RZ4p-saaQkc) course by freeCodeCamp.
+
 Instead of passively watching, I am building this portfolio to track my hands-on progress, keeping a clean record of both theoretical concepts and practical automation scripts.
 
 ## 🛠️ My Learning Methodology
@@ -37,9 +39,9 @@ Once the `scripts/` directories are populated, you can run any of the Bash scrip
 **Section 02: Core Tooling & Concepts**
 - [x] 02-00 Man Pages
 - [x] 02-01 Programs and Commands
-- [ ] 02-02 Basic Variables
-- [ ] 02-03 vim Crash Course
-- [ ] 02-04 File Permissions
+- [x] 02-02 Basic Variables
+- [x] 02-03 vim Crash Course
+- [x] 02-04 File Permissions
 
 **Section 03: Scripting Fundamentals**
 - [ ] 03-00 Finally Scripting
@@ -123,6 +125,17 @@ Once the `scripts/` directories are populated, you can run any of the Bash scrip
 - [ ] 17-00 Forkbomb
 - [ ] Bonus Credits
 - [ ] Bonus Debugging Session
+
+**Bonus Track: Vim Mastery (freeCodeCamp Course)**
+- [ ] 01. Motivation & Power of Vim
+- [ ] 02. Installation & Configuration (`.vimrc`)
+- [ ] 03. The Basics (Opening, Saving, Quitting)
+- [ ] 04. Core Modes (Normal, Insert, Visual)
+- [ ] 05. Navigation & Editing Fundamentals
+- [ ] 06. Intermediate Key Bindings & Jumps
+- [ ] 07. Macros & Registers
+- [ ] 08. Neovim & Plugin Management
+- [ ] 09. Vim Bindings in IDEs (VS Code, PyCharm)
 
 ## 🧰 Tools & Environment
 * **OS:** Kali Linux (Virtual Machine)

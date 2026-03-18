@@ -6,8 +6,10 @@ This document serves as a quick reference guide for all the command-line tools, 
 | Command | Common Flags & Meanings | Description | Example |
 | :--- | :--- | :--- | :--- |
 | `pwd` | *None* | Print working directory (current path). | `pwd` |
-| `ls` | `-a` (show hidden/all) | List directory contents. | `ls -a` |
+| `ls` | `-a` (show hidden/all) <br> `-l` (long listing) | List directory contents. | `ls -a` |
 | `cd` | `-` (jump to previous dir)<br> `..` (jump to parent dir) | Change directory. | `cd /var/log` |
+| `whoami` | *None* | displays logged user | `whoami` |
+| `uname` | `-a` (all information) | displays system's name | `uname -a` |
 
 ## 📝 2. File Manipulation
 | Command | Common Flags & Meanings | Description | Example |
@@ -55,6 +57,9 @@ This document serves as a quick reference guide for all the command-line tools, 
 | Command | Common Flags & Meanings | Description | Example |
 | :--- | :--- | :--- | :--- |
 | `chmod` | `+x` (make executable)<br>`-R` (recursive) | Change file/directory permissions. | `chmod +x script.sh` |
+| `bash` | *None* | Run a script directly through the bash interpreter (no execute permissions needed). | `bash script.sh` |
+| `./` | *None* | Execute a file located in the current directory (requires `+x` permission and a shebang). | `./script.sh` |
+| `#!` | *None* | The "Shebang". Placed on the first line of a script to define the interpreter for the OS. | `#!/usr/bin/env bash` |
 
 
 ## ⚙️ 7. Environment & Shell Customization
@@ -62,7 +67,10 @@ This document serves as a quick reference guide for all the command-line tools, 
 | :--- | :--- | :--- | :--- |
 | `alias` | `name="cmd"` (create shortcut)<br>`-p` (print all aliases) | Create a custom shortcut for a command. | `alias update="sudo apt update"` |
 | `unalias` | *None* | Remove a previously created alias. | `unalias update` |
-| *(more to be added)* | | | |
+| `unalias` | *None* | Remove a previously created alias. | `unalias update` |
+| `var=value` | *None* | Assign a value to a variable (NO spaces around the `=`). | `name="John"` |
+| `unset` | *None* | Delete a previously defined variable from the shell session. | `unset name` |
+| `$(cmd)` | *None* | Command Substitution: evaluates the command inside and replaces it with its output. | `files=$(ls -a)` |
 
 ## 📚 8. Help & Command Identification
 | Command | Common Flags & Meanings | Description | Example |
