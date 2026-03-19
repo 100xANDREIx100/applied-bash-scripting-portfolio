@@ -127,7 +127,7 @@ Once the `scripts/` directories are populated, you can run any of the Bash scrip
 - [ ] Bonus Debugging Session
 
 **Bonus Track: Vim Mastery (freeCodeCamp Course)**
-- [ ] 01. Motivation & Power of Vim
+- [x] 01. Motivation & Power of Vim
 - [ ] 02. Installation & Configuration (`.vimrc`)
 - [ ] 03. The Basics (Opening, Saving, Quitting)
 - [ ] 04. Core Modes (Normal, Insert, Visual)
