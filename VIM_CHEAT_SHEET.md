@@ -35,9 +35,20 @@ This document tracks my progress learning `vim`, the ubiquitous terminal text ed
 | :--- | :--- |
 | `dd` | Delete (cut) the current line. |
 | `yy` | Yank (copy) the current line. |
+| `ctrl + y` | Yank (copy) the current line. |
 | `p` | Paste the deleted or yanked text. |
 | `u` | Undo the last action. |
 | `number + command` | Executes the command a specific number of times (e.g., `5dd` deletes 5 lines). |
+| `ctrl+r` | redo |
+| `d` | delete |
+| `y` | copy |
+| `p` | paste |
+| `ctrl + p` | paste before/above the cursor |
+| `c` | delete the selection and enter Insert Mode |
+| `cc` | delete the line and enter Insert Mode |
+| `ctrl + d` | delete the rest of the line |
+| `ctrl + c` | delete the rest of the line and enter Insert Mode |
+| `s` | replace current selection |
 
 ## 💾 Saving & Quitting (Command Mode)
 | Command | Action |
@@ -55,6 +66,9 @@ This document tracks my progress learning `vim`, the ubiquitous terminal text ed
 | `A` | Append text at the **end** of the current line. |
 | `o` | Open a new line **below** the current line and enter Insert mode. |
 | `O` | Open a new line **above** the current line and enter Insert mode. |
+| `c` | delete the selection and enter Insert Mode |
+| `cc` | delete the line and enter Insert Mode |
+| `ctrl + c` | delete the rest of the line and enter Insert Mode |
 
 ## 🛠️ Useful Settings (Command Mode or `.vimrc`)
 | Command | Description |

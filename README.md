@@ -130,12 +130,11 @@ Once the `scripts/` directories are populated, you can run any of the Bash scrip
 - [x] 01. Motivation & Power of Vim
 - [x] 02. Installation & Configuration
 - [x] 03. The Basics (Opening, Saving, Quitting)
-- [ ] 04. Core Modes (Normal, Insert, Visual)
-- [ ] 05. Navigation & Editing Fundamentals
-- [ ] 06. Intermediate Key Bindings & Jumps
-- [ ] 07. Macros & Registers
-- [ ] 08. Neovim & Plugin Management
-- [ ] 09. Vim Bindings in IDEs (VS Code, PyCharm)
+- [x] 04. Navigation & Editing Fundamentals
+- [ ] 05. Intermediate Key Bindings & Jumps
+- [ ] 06. Macros & Registers
+- [ ] 07. Neovim & Plugin Management
+- [ ] 08. Vim Bindings in IDEs (VS Code, PyCharm)
 
 ## 🧰 Tools & Environment
 * **OS:** Kali Linux (Virtual Machine)
