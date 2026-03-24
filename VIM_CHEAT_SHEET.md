@@ -1,6 +1,6 @@
 # ⌨️ Vim Mastery Cheat Sheet
 
-This document tracks my progress learning `vim`, the ubiquitous terminal text editor. 
+This document tracks my progress learning `vim`, the ubiquitous terminal text editor.
 
 ## ⚙️ Installation & Setup
 | Command / Concept | Description |
@@ -8,6 +8,7 @@ This document tracks my progress learning `vim`, the ubiquitous terminal text ed
 | `sudo apt install vim` | Installs vim. |
 | `vim` or `vi` | Run these to check if vim is installed. |
 | `.vimrc` | The configuration file where you can save your vim settings permanently. |
+| `.ideavimrc` | The configuration file for JetBrains IDEs when using the IdeaVim plugin. |
 | **Neovim (`nvim`)** | A highly customizable alternative. Its commands can also be used in other IDEs. |
 
 ## 📁 Opening Files (Terminal)
@@ -22,68 +23,67 @@ This document tracks my progress learning `vim`, the ubiquitous terminal text ed
 | :--- | :--- | :--- |
 | **Normal** | `ESC` | Default mode for navigation, deletion, and copying. |
 | **Insert** | `i`, `I`, `a`, `A`, `o`, `O` | Typing text into the file. |
-| **Visual** | `v`<br> `shift + v` enters Visual Line mode <br> `CTRL+V` enter Visual Block mode <br>  | Selecting and highlighting text blocks. |
+| **Visual** | `v`<br> `V` enters Visual Line mode <br> `Ctrl+v` enter Visual Block mode | Selecting and highlighting text blocks. |
 | **Command** | `:` | Starts a command from Normal mode. |
 
 ## 🧭 Navigation (Normal Mode)
 | Keystroke | Action |
 | :--- | :--- |
 | `h`, `j`, `k`, `l`, `arrow keys` | Left, Down, Up, Right. |
-| `w` | jump to next word |
-| `0` | go to the beginning of the line |
-| `%` | when focusing on a bracket go the its pair |
-| `t + symbol` | jumps to the symbol before the specified one |
-| `f + symbol` | jumps to the specified symbol |
-| `gg` | jump to the start of the file |
-| `shift + g` | jumps at the end of the file |
-| `:n` `n + shift + g` | jump at line n |
-| `shift + w` | jump to next word separated by space |
-| `b` | go to previous word |
-| `shift + b` | jump to previous word (separated by space) |
-| `e` | jump to the end of a word |
-| `$` | go to the end of a line |
-| `/word` |search for word|
-| `?word` | same search but backwards|
-| `n` |jump to next occurence|
-| `shift+n` |go to previous occurence|
-| `*` |search forward for the next occurence of the focused word|
-| `#` |search backward for the before occurence of the focused word|
-| `m+char` |make the char a waypoint at the current location of the cursor|
-| `'+char` |jump the cursor back to that waypoint|
-| `zz` |centers the cursor in the middle of the screen|
+| `w` | Jump to next word. |
+| `W` | Jump to next word separated by space. |
+| `b` | Go to previous word. |
+| `B` | Jump to previous word (separated by space). |
+| `e` | Jump to the end of a word. |
+| `0` | Go to the beginning of the line. |
+| `$` | Go to the end of a line. |
+| `%` | When focusing on a bracket, go to its pair. |
+| `t[symbol]` | Jumps to the symbol before the specified one. |
+| `f[symbol]` | Jumps to the specified symbol. |
+| `gg` | Jump to the start of the file. |
+| `G` | Jumps to the end of the file. |
+| `:n` or `nG` | Jump to line n. |
+| `/word` | Search for word. |
+| `?word` | Same search but backwards. |
+| `n` | Jump to next occurrence. |
+| `N` | Go to previous occurrence. |
+| `*` | Search forward for the next occurrence of the focused word. |
+| `#` | Search backward for the previous occurrence of the focused word. |
+| `m[char]` | Make the char a waypoint at the current location of the cursor. |
+| `'[char]` | Jump the cursor back to that waypoint. |
+| `zz` | Centers the cursor in the middle of the screen. |
 
 ## ✂️ Editing & Manipulation (Normal Mode)
 | Keystroke | Action |
 | :--- | :--- |
+| `d` | Delete. |
 | `dd` | Delete (cut) the current line. |
+| `D` | Delete the rest of the line. |
+| `dw` | Delete the rest of the word. |
+| `diw` | Delete inside a word. |
+| `d0` | Deletes everything from the beginning of the line. |
+| `d$` | Delete everything until the end of the line. |
+| `d%` | Delete anything between the brackets. |
+| `dt[symbol]` | Deletes anything up to that symbol. |
+| `y` | Yank (copy) operator. |
 | `yy` | Yank (copy) the current line. |
-| `y` | Yank (copy) the current line. |
 | `p` | Paste the deleted or yanked text. |
+| `P` | Paste before/above the cursor. |
+| `c` | Delete the selection and enter Insert Mode. |
+| `cc` | Delete the line and enter Insert Mode. |
+| `C` | Delete the rest of the line and enter Insert Mode. |
+| `ciw` | Change inside a word. |
+| `ci[symbol]` | Change everything between the symbols. |
+| `s` | Replace current selection. |
 | `u` | Undo the last action. |
+| `Ctrl+r` | Redo. |
 | `number + command` | Executes the command a specific number of times (e.g., `5dd` deletes 5 lines). |
-| `ctrl+r` | redo |
-| `d` | delete |
-| `p` | paste |
-| `shift + p` | paste before/above the cursor |
-| `c` | delete the selection and enter Insert Mode |
-| `cc` | delete the line and enter Insert Mode |
-| `shift + d` | delete the rest of the line |
-| `shift + c` | delete the rest of the line and enter Insert Mode |
-| `s` | replace current selection |
-| `d + w` | delete the rest of the word |
-| `d + i + w` | delete inside a word |
-| `c + i + w` | change inside a word |
-| `d + 0` | deletes everything from the beginning of the line |
-| `d + $` | delete everything  until the end of the line |
-| `c + i + symbol` | change everything between the symbols |
-| `d+%` | delete anything between the brackets |
-| `d + t + symbol` | deletes anything up to that symbol |
-| `>>` |indents the line to the right|
-| `<<` |indents the line to the left|
-| `==` |auto indents current line|
-| `gg=G` |auto indent the whole file|
-| `:%s/word1/word2/g` |replaces every occurence of word1 with word2|
-| `.` |executes the last command|
+| `>>` | Indents the line to the right. |
+| `<<` | Indents the line to the left. |
+| `==` | Auto indents current line. |
+| `gg=G` | Auto indent the whole file. |
+| `:%s/word1/word2/g` | Replaces every occurrence of word1 with word2. |
+| `.` | Executes the last command. |
 
 ## 💾 Saving & Quitting (Command Mode)
 | Command | Action |
@@ -101,9 +101,9 @@ This document tracks my progress learning `vim`, the ubiquitous terminal text ed
 | `A` | Append text at the **end** of the current line. |
 | `o` | Open a new line **below** the current line and enter Insert mode. |
 | `O` | Open a new line **above** the current line and enter Insert mode. |
-| `c` | delete the selection and enter Insert Mode |
-| `cc` | delete the line and enter Insert Mode |
-| `shift + c` | delete the rest of the line and enter Insert Mode |
+| `c` | Delete the selection and enter Insert Mode. |
+| `cc` | Delete the line and enter Insert Mode. |
+| `C` | Delete the rest of the line and enter Insert Mode. |
 
 ## 🛠️ Useful Settings (Command Mode or `.vimrc`)
 | Command | Description |
@@ -119,20 +119,20 @@ This document tracks my progress learning `vim`, the ubiquitous terminal text ed
 ## 📼 Macros & Registers
 | Command | Description |
 | :--- | :--- |
-|`:reg`|List all registers|
-|`"[n]yy`|copy the current line into register [n]|
-|`[n]p`|paste the content of the register [n]|
-|`"+`|special register that represents the system clipboard|
-|`"0`|special register that contains the last thing actually copied|
-|`q[char]`|start recording a macro into register [char]|
-|`q`|quit recording the macro|
-|`@[char]`|execute the macro from register [char]|
+| `:reg` | List all registers. |
+| `"[n]yy` | Copy the current line into register [n]. |
+| `"[n]p` | Paste the content of the register [n]. |
+| `"+` | Special register that represents the system clipboard. |
+| `"0` | Special register that contains the last thing actually copied. |
+| `q[char]` | Start recording a macro into register [char]. |
+| `q` | Quit recording the macro. |
+| `@[char]` | Execute the macro from register [char]. |
 
 ## 🔌 Neovim & Plugins
 | Command | Description |
 | :--- | :--- |
-|`sudo apt install neovim`|Install neovim|
-|`~/.config/nvim/init.vim`|Neovim config file where plugin are stored|
-|`vim-plug`|Popular plugin manager used to install plugins|
-|`call plug#begin()` <br> `Plug 'link'` <br> `call plug#end()`|Required syntax block inside the config file to devine which plugins to load|
-|`:PlugInstall`|Install actual plugins|
+| `sudo apt install neovim` | Install neovim. |
+| `~/.config/nvim/init.vim` | Neovim config file where plugins are stored. |
+| `vim-plug` | Popular plugin manager used to install plugins. |
+| `call plug#begin()` <br> `Plug 'link'` <br> `call plug#end()` | Required syntax block inside the config file to define which plugins to load. |
+| `:PlugInstall` | Install actual plugins. |

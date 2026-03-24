@@ -134,7 +134,7 @@ Once the `scripts/` directories are populated, you can run any of the Bash scrip
 - [x] 05. Intermediate Key Bindings & Jumps
 - [x] 06. Macros & Registers
 - [x] 07. Neovim & Plugin Management
-- [ ] 08. Vim Bindings in IDEs (VS Code, PyCharm)
+- [x] 08. Vim Bindings in IDEs (VS Code, PyCharm)
 
 ## 🧰 Tools & Environment
 * **OS:** Kali Linux (Virtual Machine)
