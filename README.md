@@ -132,7 +132,7 @@ Once the `scripts/` directories are populated, you can run any of the Bash scrip
 - [x] 03. The Basics (Opening, Saving, Quitting)
 - [x] 04. Navigation & Editing Fundamentals
 - [x] 05. Intermediate Key Bindings & Jumps
-- [ ] 06. Macros & Registers
+- [x] 06. Macros & Registers
 - [ ] 07. Neovim & Plugin Management
 - [ ] 08. Vim Bindings in IDEs (VS Code, PyCharm)
 

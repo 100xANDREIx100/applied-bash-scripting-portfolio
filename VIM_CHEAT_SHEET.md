@@ -115,3 +115,15 @@ This document tracks my progress learning `vim`, the ubiquitous terminal text ed
 | `:set shiftwidth=n` | Sets the number of spaces used for indentation. |
 | `:set autoindent` | Automatically matches the indentation of the previous line. |
 | `:colorscheme` | Used to change the visual color scheme. |
+
+## 📼 Macros & Registers
+| Command | Description |
+| :--- | :--- |
+|`:reg`|List all registers|
+|`"[n]yy`|copy the current line into register [n]|
+|`[n]p`|paste the content of the register [n]|
+|`"+`|special register that represents the system clipboard|
+|`"0`|special register that contains the last thing actually copied|
+|`q[char]`|start recording a macro into register [char]|
+|`q`|quit recording the macro|
+|`@[char]`|execute the macro from register [char]|
