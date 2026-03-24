@@ -127,3 +127,12 @@ This document tracks my progress learning `vim`, the ubiquitous terminal text ed
 |`q[char]`|start recording a macro into register [char]|
 |`q`|quit recording the macro|
 |`@[char]`|execute the macro from register [char]|
+
+## 🔌 Neovim & Plugins
+| Command | Description |
+| :--- | :--- |
+|`sudo apt install neovim`|Install neovim|
+|`~/.config/nvim/init.vim`|Neovim config file where plugin are stored|
+|`vim-plug`|Popular plugin manager used to install plugins|
+|`call plug#begin()` <br> `Plug 'link'` <br> `call plug#end()`|Required syntax block inside the config file to devine which plugins to load|
+|`:PlugInstall`|Install actual plugins|
