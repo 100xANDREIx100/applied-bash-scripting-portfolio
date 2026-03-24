@@ -22,7 +22,7 @@ This document tracks my progress learning `vim`, the ubiquitous terminal text ed
 | :--- | :--- | :--- |
 | **Normal** | `ESC` | Default mode for navigation, deletion, and copying. |
 | **Insert** | `i`, `I`, `a`, `A`, `o`, `O` | Typing text into the file. |
-| **Visual** | `v`, `V`, `CTRL+V` | Selecting and highlighting text blocks. |
+| **Visual** | `v`<br> `shift + v` enters Visual Line mode <br> `CTRL+V` enter Visual Block mode <br>  | Selecting and highlighting text blocks. |
 | **Command** | `:` | Starts a command from Normal mode. |
 
 ## 🧭 Navigation (Normal Mode)
@@ -41,8 +41,16 @@ This document tracks my progress learning `vim`, the ubiquitous terminal text ed
 | `b` | go to previous word |
 | `shift + b` | jump to previous word (separated by space) |
 | `e` | jump to the end of a word |
-| `$` | go to the endo of a line |
-
+| `$` | go to the end of a line |
+| `/word` |search for word|
+| `?word` | same search but backwards|
+| `n` |jump to next occurence|
+| `shift+n` |go to previous occurence|
+| `*` |search forward for the next occurence of the focused word|
+| `#` |search backward for the before occurence of the focused word|
+| `m+char` |make the char a waypoint at the current location of the cursor|
+| `'+char` |jump the cursor back to that waypoint|
+| `zz` |centers the cursor in the middle of the screen|
 
 ## ✂️ Editing & Manipulation (Normal Mode)
 | Keystroke | Action |
@@ -55,7 +63,6 @@ This document tracks my progress learning `vim`, the ubiquitous terminal text ed
 | `number + command` | Executes the command a specific number of times (e.g., `5dd` deletes 5 lines). |
 | `ctrl+r` | redo |
 | `d` | delete |
-| `y` | copy |
 | `p` | paste |
 | `shift + p` | paste before/above the cursor |
 | `c` | delete the selection and enter Insert Mode |
@@ -69,8 +76,14 @@ This document tracks my progress learning `vim`, the ubiquitous terminal text ed
 | `d + 0` | deletes everything from the beginning of the line |
 | `d + $` | delete everything  until the end of the line |
 | `c + i + symbol` | change everything between the symbols |
-| `d+%` | deletete anything between the brackets |
+| `d+%` | delete anything between the brackets |
 | `d + t + symbol` | deletes anything up to that symbol |
+| `>>` |indents the line to the right|
+| `<<` |indents the line to the left|
+| `==` |auto indents current line|
+| `gg=G` |auto indent the whole file|
+| `:%s/word1/word2/g` |replaces every occurence of word1 with word2|
+| `.` |executes the last command|
 
 ## 💾 Saving & Quitting (Command Mode)
 | Command | Action |

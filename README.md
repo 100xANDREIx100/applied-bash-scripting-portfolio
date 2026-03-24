@@ -131,7 +131,7 @@ Once the `scripts/` directories are populated, you can run any of the Bash scrip
 - [x] 02. Installation & Configuration
 - [x] 03. The Basics (Opening, Saving, Quitting)
 - [x] 04. Navigation & Editing Fundamentals
-- [ ] 05. Intermediate Key Bindings & Jumps
+- [x] 05. Intermediate Key Bindings & Jumps
 - [ ] 06. Macros & Registers
 - [ ] 07. Neovim & Plugin Management
 - [ ] 08. Vim Bindings in IDEs (VS Code, PyCharm)
@@ -139,7 +139,7 @@ Once the `scripts/` directories are populated, you can run any of the Bash scrip
 ## 🧰 Tools & Environment
 * **OS:** Kali Linux (Virtual Machine)
 * **Shell:** GNU Bash
-* **Editor/IDE:** vim / nano (CLI) & VS Code
+* **Editor/IDE:** vim (CLI) & VS Code
 * **Notes:** Microsoft OneNote (exported to PDF)
 
 ---
