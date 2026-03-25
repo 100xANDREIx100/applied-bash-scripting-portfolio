@@ -1,6 +1,6 @@
 # ⌨️ Vim Mastery Cheat Sheet
 
-This document tracks my progress learning `vim`, the ubiquitous terminal text editor.
+This document presents a (mostly) complete overview of VIM commands, covering from basic navigation commands to more advanced ones, including also separate sections for some settings, plugins, macros and registers. I acknoladge that it is not complete (while realizing it cannot be) but covers a wide range of notions that I peronally believe are more than enough to get started.
 
 ## ⚙️ Installation & Setup
 | Command / Concept | Description |
