@@ -1,6 +1,6 @@
 # ⌨️ Vim Mastery Cheat Sheet
 
-This document presents a (mostly) complete overview of VIM commands, covering from basic navigation commands to more advanced ones, including also separate sections for some settings, plugins, macros and registers. I acknoladge that it is not complete (while realizing it cannot be) but covers a wide range of notions that I peronally believe are more than enough to get started.
+This document presents a (mostly) complete overview of VIM commands, covering everything from basic navigation to more advanced actions. It also includes separate sections for settings, plugins, macros, and registers. I acknowledge that it is not exhaustive (as Vim is massive!), but it covers a wide range of concepts that I personally believe are more than enough to get started.
 
 ## ⚙️ Installation & Setup
 | Command / Concept | Description |
