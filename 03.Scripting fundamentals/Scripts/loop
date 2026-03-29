@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-for thing in foo dar baz; do
+for thing in "$@"; do
 	echo "thing is $thing"
 done
