@@ -53,7 +53,7 @@ This document serves as a quick reference guide for all the command-line tools, 
 | `$` (Dollar) | Matches the end of the line | `grep 'done$' log.txt` (finds lines ending with "done") |
 | `.` (Dot) | Matches exactly 1 character | `grep 'd.g' file.txt` (finds "dog", "dig", "dug") |
 
-## ⚙️ 6. Scripting Fundamentals (Coming Soon)
+## ⚙️ 6. Scripting Fundamentals 
 | Command | Common Flags & Meanings | Description | Example |
 | :--- | :--- | :--- | :--- |
 | `chmod` | `+x` (make executable)<br>`-R` (recursive) | Change file/directory permissions. | `chmod +x script.sh` |
@@ -61,7 +61,13 @@ This document serves as a quick reference guide for all the command-line tools, 
 | `./` | *None* | Execute a file located in the current directory (requires `+x` permission and a shebang). | `./script.sh` |
 | `#!` | *None* | The "Shebang". Placed on the first line of a script to define the interpreter for the OS. | `#!/usr/bin/env bash` |
 |`for thing in list; do ` <br> body of the for loop <br> `done`|*None*|the syntax for a for loop| `for thing in foo bum bash; do ` <br> `thing is $thing` <br> `done`|
-
+|`read`|`-p "text"` displays a prompt|Displays text and reads user input from the terminal, storing it in a variable|`read -p "Name: " var`|
+|`yes`|**None**|Outputs 'y' repeatedly; useful to pipe to software that asks for multiple confirmations. | `yes \| rm -i *.txt`|
+|`#`|**None**|Marks the start of a comment. Everything after this on a line is ignored by the shell.|`# This is a comment`|
+|`$1`,`$2`,etc.|**None**|Positional parameters. The variable takes the first (or second, third) provided argument.|`echo first arg is $1`|
+|`$@`|**None**|An array that expands to include all arguments passed to the script.|`for arg in "$@"; do`|
+|`[[ -n $1 ]]` | `-n` nonzero length | A test condition used to check if a string or argument is set and not empty|`[[ -n $1 ]]`|
+|`if [[ -n "$1" ]]; then` <br> body of the if <br> `else` <br> body of the else <br> `fi`|**None**|Evaluates a condition. If true, it runs the then body; otherwise, it can run an else body.|`if [[ -n "$1" ]]; do` <br> `echo "Set"` <br> `else` <br> `echo "Empty"`<br> `fi`|
 
 ## ⚙️ 7. Environment & Shell Customization
 | Command | Common Flags & Meanings | Description | Example |
