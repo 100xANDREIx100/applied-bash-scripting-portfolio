@@ -68,7 +68,9 @@ This document serves as a quick reference guide for all the command-line tools, 
 |`$@`|**None**|An array that expands to include all arguments passed to the script.|`for arg in "$@"; do`|
 |`[[ -n $1 ]]` | `-n` nonzero length | A test condition used to check if a string or argument is set and not empty|`[[ -n $1 ]]`|
 |`if [[ -n "$1" ]]; then` <br> body of the if <br> `else` <br> body of the else <br> `fi`|**None**|Evaluates a condition. If true, it runs the then body; otherwise, it can run an else body.|`if [[ -n "$1" ]]; do` <br> `echo "Set"` <br> `else` <br> `echo "Empty"`<br> `fi`|
-
+|`name(){` <br> body <br> `}`|**None**|The syntax to define a function. Functions act like their own mini-programs within the script.|`greet (){` <br> `echo "hi $1"` <br> `}`|
+|`local`|**None**|Variables in bash are global by default. Use the local keyword to make them local to the function|`local var="value"`|
+|`return`|**None**|Functions automatically return the exit code of the last command inside. You can manually set the code using the return keyword.|`return 0`|
 ## ⚙️ 7. Environment & Shell Customization
 | Command | Common Flags & Meanings | Description | Example |
 | :--- | :--- | :--- | :--- |
