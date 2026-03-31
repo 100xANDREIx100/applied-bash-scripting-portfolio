@@ -78,6 +78,10 @@ This document serves as a quick reference guide for all the command-line tools, 
 |`until [[ cond ]]; do` <br> body <br> `done`|**None**|The syntax for an until loop. Runs as long as the condition is false.|`until [[ $x -eq 0 ]]; do` <br> `echo $x` <br> `done`|
 |`if command; then`|**None**|if can execute a command directly instead of using [[ ]]. It checks its exit code and executes the then segment if the exit code was success (0).|`if grep "error" log; then` <br> `echo "Found!"` <br> `fi`|
 |`true`,`false`|**None**|Commands in bash that just return exit codes  (0 for true, 1 for false). Very useful for infinite loops.|`while true; do` <br> `echo "Infinite"` <br> `done`|
+|`{a..f}`|**None**|Brace expansion. Expands to a sequence from the starting value to the ending value (inclusive).|`for letter in {a..f}; do`|
+|`(( ))`|**None**|Math and arithmetic syntax in bash. It is aware of variables, so there is no need for the $ prefix inside the parentheses.|`(( total = x + 5 ))`|
+|`for (( i=0; i<max; i++ )); do` <br> body <br> `done`|**None**|C-style for loops in bash. They are a reliable and fast way to iterate a specific number of times.|`for (( i=0; i<5; i++ )); do` <br> `echo $i` <br> `done`|
+
 ## ⚙️ 7. Environment & Shell Customization
 | Command | Common Flags & Meanings | Description | Example |
 | :--- | :--- | :--- | :--- |
