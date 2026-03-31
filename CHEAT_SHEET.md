@@ -71,6 +71,13 @@ This document serves as a quick reference guide for all the command-line tools, 
 |`name(){` <br> body <br> `}`|**None**|The syntax to define a function. Functions act like their own mini-programs within the script.|`greet (){` <br> `echo "hi $1"` <br> `}`|
 |`local`|**None**|Variables in bash are global by default. Use the local keyword to make them local to the function|`local var="value"`|
 |`return`|**None**|Functions automatically return the exit code of the last command inside. You can manually set the code using the return keyword.|`return 0`|
+|`""`|**None**|Allows for variable expansion.|`echo "Hello $USER"`|
+|`''`|**None**|Does not allow for variable expansion; treats everything literally.|`echo 'Hello $USER'`|
+|`[[ -f file ]]`| `-f` regular file|A test condition used to check if a specific path exists and is a regular file.|`[[ -f ./script.sh ]]`|
+|`while [[ cond ]]; do` <br> body <br> `done`|**None**|The syntax for a while loop. Runs as long as the condition is true.|`The syntax for a while loop. Runs as long as the condition is true.` <br> `echo $x` <br> `done`|
+|`until [[ cond ]]; do` <br> body <br> `done`|**None**|The syntax for an until loop. Runs as long as the condition is false.|`until [[ $x -eq 0 ]]; do` <br> `echo $x` <br> `done`|
+|`if command; then`|**None**|if can execute a command directly instead of using [[ ]]. It checks its exit code and executes the then segment if the exit code was success (0).|`if grep "error" log; then` <br> `echo "Found!"` <br> `fi`|
+|`true`,`false`|**None**|Commands in bash that just return exit codes  (0 for true, 1 for false). Very useful for infinite loops.|`while true; do` <br> `echo "Infinite"` <br> `done`|
 ## ⚙️ 7. Environment & Shell Customization
 | Command | Common Flags & Meanings | Description | Example |
 | :--- | :--- | :--- | :--- |
