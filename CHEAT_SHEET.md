@@ -81,6 +81,11 @@ This document serves as a quick reference guide for all the command-line tools, 
 |`{a..f}`|**None**|Brace expansion. Expands to a sequence from the starting value to the ending value (inclusive).|`for letter in {a..f}; do`|
 |`(( ))`|**None**|Math and arithmetic syntax in bash. It is aware of variables, so there is no need for the $ prefix inside the parentheses.|`(( total = x + 5 ))`|
 |`for (( i=0; i<max; i++ )); do` <br> body <br> `done`|**None**|C-style for loops in bash. They are a reliable and fast way to iterate a specific number of times.|`for (( i=0; i<5; i++ )); do` <br> `echo $i` <br> `done`|
+|`read`|`-r`(raw input)|The -r flag prevents backslashes from being treated as escape characters. By itself, read only reads the first line of input.|`read -r line`|
+|`while read -r line; do` <br> body <br> `done`|**None**|Used to read a whole document line-by-line. read stops when it finds a newline character; if a file doesn't end with a newline, the last bit of data can be lost.|`while read -r line; do` <br> `echo "$line"` <br> `done < file.txt`|
+|`[[ -n $line ]]`|`-n` (nonzero length)|Tests if the line variable has some data in it. Used alongside read to prevent losing the last line of a file if it lacks a trailing newline character.|`while read -r line \|\| [[ -n "$line" ]]; do`|
+|`:`,`true`|**None**|A null command that does nothing. If a loop or if body is empty, Bash considers it an error. You can use : or true to safely "fill" it.|`while read -r line; do` <br> `:` <br> `done`|
+|`<`|**None**|Input redirection. Tells a program to read its input from a specified file rather than from the terminal|`program < file.txt`|
 
 ## ⚙️ 7. Environment & Shell Customization
 | Command | Common Flags & Meanings | Description | Example |
