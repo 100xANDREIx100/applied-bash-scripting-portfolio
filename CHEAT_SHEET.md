@@ -86,6 +86,10 @@ This document serves as a quick reference guide for all the command-line tools, 
 |`[[ -n $line ]]`|`-n` (nonzero length)|Tests if the line variable has some data in it. Used alongside read to prevent losing the last line of a file if it lacks a trailing newline character.|`while read -r line \|\| [[ -n "$line" ]]; do`|
 |`:`,`true`|**None**|A null command that does nothing. If a loop or if body is empty, Bash considers it an error. You can use : or true to safely "fill" it.|`while read -r line; do` <br> `:` <br> `done`|
 |`<`|**None**|Input redirection. Tells a program to read its input from a specified file rather than from the terminal|`program < file.txt`|
+|`$#`|**None**|A special variable that stores exactly how many arguments are given to a script or function.|`if [[ $# -eq 0 ]]; then`|
+|`$0`,`$1`,`$2`|**None**|File descriptors used to manage data streams. &0 is standard input, &1 is standard output, and &2 is standard error.|`command > out.txt 2>&1`|
+|`exit`|**None**|Stops the entire script and sets an exit code. Inside a script, outside a function, you cannot use return; the solution is to use exit (code).|`exit 1`|
+|`elif`|**None**|Short for "else if". Used in if statements to chain multiple conditional checks together.|`elif [[ $var == 2 ]]; then`|
 
 ## ⚙️ 7. Environment & Shell Customization
 | Command | Common Flags & Meanings | Description | Example |
