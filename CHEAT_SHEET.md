@@ -90,6 +90,9 @@ This document serves as a quick reference guide for all the command-line tools, 
 |`$0`,`$1`,`$2`|**None**|File descriptors used to manage data streams. &0 is standard input, &1 is standard output, and &2 is standard error.|`command > out.txt 2>&1`|
 |`exit`|**None**|Stops the entire script and sets an exit code. Inside a script, outside a function, you cannot use return; the solution is to use exit (code).|`exit 1`|
 |`elif`|**None**|Short for "else if". Used in if statements to chain multiple conditional checks together.|`elif [[ $var == 2 ]]; then`|
+|`case $var in` <br> `pattern)` <br> body <br> `;;` <br> `*)` <br> default <br> `;;` <br> `esac` | **None** | The syntax for a case statement. The * acts as a default, catch-all pattern. Normally, after finding a match and hitting ;;, it will not continue searching for other matches. | `case $1 in` <br> `start)` <br> `echo "starting"` <br> `;;` <br> `*)` <br> `echo "Unknown"` <br> `;;` <br> `esac`|
+|`;&`|**None**|Used instead of ;;. It falls through and executes the body of the very next branch, no matter if its pattern matches or not.|`pattern1)` <br> body <br> `;&`|
+|`;;&`|**None**|Used instead of ;;. It continues through all remaining branches and evaluates their patterns, executing the bodies of any that also apply/match.|`pattern1)` <br> body <br>`;;&`|
 
 ## ⚙️ 7. Environment & Shell Customization
 | Command | Common Flags & Meanings | Description | Example |
