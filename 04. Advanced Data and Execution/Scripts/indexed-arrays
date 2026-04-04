@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+declare -a arr
+arr=(foo bar baz)
+
+newarr=( "${arr[@]}" buddy guy)
+echo "newarr is : ${newarr[@]}"
+newarr+=(bro man)
+echo "now newarr is : ${newarr[@]}"
+
+echo "first arr is : ${arr[0]}"
+echo "${arr[-1]}"
+echo "${arr[2]}"
+
+echo 
+ind=2
+echo ${arr[$ind]}
+
+echo ${arr[*]}
+echo ${arr[@]}
+
+for item in "${arr[*]}"; do
+	echo "item is : $item"
+done
+
+for item in "${arr[@]}"; do
+	echo "item is : $item"
+done
+
+echo "length of the array : ${#arr[@]}"
+echo "length of the first element: ${#arr[0]}"
