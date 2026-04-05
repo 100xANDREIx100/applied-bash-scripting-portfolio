@@ -44,17 +44,17 @@ Once the `scripts/` directories are populated, you can run any of the Bash scrip
 - [x] 02-04 File Permissions
 
 **Section 03: Scripting Fundamentals**
-- [ ] 03-00 Finally Scripting
-- [ ] 03-01 User Input
-- [ ] 03-02 Functions
-- [ ] 03-03 Conditionals
-- [ ] 03-04 For Loops
-- [ ] 03-05 Input / Output
-- [ ] 03-06 Chapter 3 Recap
+- [x] 03-00 Finally Scripting
+- [x] 03-01 User Input
+- [x] 03-02 Functions
+- [x] 03-03 Conditionals
+- [x] 03-04 For Loops
+- [x] 03-05 Input / Output
+- [x] 03-06 Chapter 3 Recap
 
 **Section 04: Advanced Data & Execution**
-- [ ] 04-00 Case Statements
-- [ ] 04-01 Indexed Arrays
+- [x] 04-00 Case Statements
+- [x] 04-01 Indexed Arrays
 - [ ] 04-02 Associative Arrays
 - [ ] 04-03 IFS Variable
 - [ ] 04-04 Command Substitution
