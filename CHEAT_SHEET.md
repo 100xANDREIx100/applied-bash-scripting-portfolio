@@ -120,5 +120,9 @@ This document serves as a quick reference guide for all the command-line tools, 
 | `"${arr[@]}"` | *None* | Expands to all elements safely. **Always use this version when writing `for` loops**. | `for i in "${arr[@]}"; do` |
 | `new=("${arr[@]}")` | *None* | Copies an entire existing array into a new one. | `copy=("${fruits[@]}")` |
 | `${#arr[@]}` | *None* | Returns the total number of elements currently in the array. | `echo ${#fruits[@]}` |
+| `declare -A arr` | `-A` (associative) | Explicitly declares an associative array (key-value pairs). This is **mandatory**; you cannot create them on the fly. | `declare -A roles` |
+| `arr[key]="val"` | *None* | Assigns a value to a specific string key. | `roles[admin]="Alice"` |
+| `${arr[key]}` <br> `${arr[$var]}` | *None* | Accesses the value associated with a key. If the key is invalid, it returns an empty string. Use `$var` to use a variable's value as the key. | `echo ${roles[$user]}` |
+| `"${!arr[@]}"` | *None* | Expands to all the **keys** of the associative array. Use this to loop over the keys. | `for key in "${!arr[@]}"; do` |
 ---
 *Note: This cheat sheet is a living document and will expand as I cover more advanced topics like awk, sed, find, and specific bash parameters.*
