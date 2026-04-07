@@ -124,5 +124,7 @@ This document serves as a quick reference guide for all the command-line tools, 
 | `arr[key]="val"` | *None* | Assigns a value to a specific string key. | `roles[admin]="Alice"` |
 | `${arr[key]}` <br> `${arr[$var]}` | *None* | Accesses the value associated with a key. If the key is invalid, it returns an empty string. Use `$var` to use a variable's value as the key. | `echo ${roles[$user]}` |
 | `"${!arr[@]}"` | *None* | Expands to all the **keys** of the associative array. Use this to loop over the keys. | `for key in "${!arr[@]}"; do` |
+| `IFS` | *None* | Internal Field Separator. A built-in special variable determining how to break up arguments and split words. Defaults to space, tab, and newline.Can be set to other characters like `,` or `:`. | `IFS=','` |
+| `( )` | *None* | Subshell execution. Everything executed between parentheses runs in a subshell. Variables or changes created inside are lost outside of it (local scope). | `(cd /tmp && ls)` |
 ---
 *Note: This cheat sheet is a living document and will expand as I cover more advanced topics like awk, sed, find, and specific bash parameters.*

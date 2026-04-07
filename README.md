@@ -56,7 +56,7 @@ Once the `scripts/` directories are populated, you can run any of the Bash scrip
 - [x] 04-00 Case Statements
 - [x] 04-01 Indexed Arrays
 - [x] 04-02 Associative Arrays
-- [ ] 04-03 IFS Variable
+- [x] 04-03 IFS Variable
 - [ ] 04-04 Command Substitution
 - [ ] 04-05 Arithmetic Expression
 - [ ] 04-06 Process Substitution
