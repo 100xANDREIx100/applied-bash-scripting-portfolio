@@ -16,7 +16,7 @@ This document serves as a quick reference guide for all the command-line tools, 
 | :--- | :--- | :--- | :--- |
 | `touch` | *None* | Create an empty file or update timestamps. | `touch new_script.sh` |
 | `rm` | `-i` (interactive/ask first)| Remove files or directories. | `rm -i file1.txt` |
-| `mv` | *None* | Move or rename files/directories. | `mv old.txt new.txt` |
+| `mv` | *None* | Move or rename files/directories. If given multiple arguments, it moves all files into the last provided argument (which must be a directory) | `mv old.txt new.txt` |
 | `cp` | *None* | Copy files or directories. | `cp file.txt /backup/` |
 | `file` | *None* | Determine the true file type based on its contents (magic bytes), ignoring the extension. | `file script.txt` |
 
@@ -126,5 +126,8 @@ This document serves as a quick reference guide for all the command-line tools, 
 | `"${!arr[@]}"` | *None* | Expands to all the **keys** of the associative array. Use this to loop over the keys. | `for key in "${!arr[@]}"; do` |
 | `IFS` | *None* | Internal Field Separator. A built-in special variable determining how to break up arguments and split words. Defaults to space, tab, and newline.Can be set to other characters like `,` or `:`. | `IFS=','` |
 | `( )` | *None* | Subshell execution. Everything executed between parentheses runs in a subshell. Variables or changes created inside are lost outside of it (local scope). | `(cd /tmp && ls)` |
+| `` `cmd` `` | *None* | The old, legacy syntax for command substitution. Avoid this, as nesting them requires complex escaping. | `` echo `echo \`whoami\`` `` |
+| `$(cmd)` | *None* | Command substitution (modern). Runs the command in a **subshell**. Any global variables modified inside it are lost as soon as it ends. It is very easy to nest. | `echo $(echo $(whoami))` |
+| `{ cmd; }` | *None* | Command grouping. Groups commands together but runs them in the **main shell** (no subshell). Variable modifications made inside remain permanent. Note the required spaces and semicolon. | `{ func; }` |
 ---
 *Note: This cheat sheet is a living document and will expand as I cover more advanced topics like awk, sed, find, and specific bash parameters.*
