@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+thing=`whoami`
+echo "thing is $thing"
+
+stuff='uname'
+echo "stuff is $stuff"
+
+whoami
+echo `whoami`
+
+echo "not escaped backtics:"
+echo `echo `whoami``
+
+echo "escaped:"
+echo `echo \`whoami\``
+
+echo `echo \`echo \\\`whoami\\\`\``
+
+echo dollar parens notation
+echo $(whoami)
+echo $(echo $(whoami))
+echo $(echo $(echo $(whoami)))
+i=6
+my-func(){
+	i=5
+	echo hi
+}
+
+thingh=$(my-func)
+echo "thing is $thingh"
+echo $i
+
+my-func
+echo $i

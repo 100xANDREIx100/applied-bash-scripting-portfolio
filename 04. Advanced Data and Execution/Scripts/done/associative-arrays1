@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+if ! declare -A arr; then
+	echo "there is not possible to make an associative array" >&2
+	exit 1
+fi
+
+arr[foo]=1
+arr[bar]=2
+arr[zoo]=3
+
+echo "${arr[foo]}"
+echo "${arr[zoo]}"
+echo "${arr[err]}"
+
+echo "${!arr[@]}"
+
+for keys in "${!arr[@]}"; do
+	echo "this is a key : $keys"
+	echo "value is "${arr[$keys]}""
+done
