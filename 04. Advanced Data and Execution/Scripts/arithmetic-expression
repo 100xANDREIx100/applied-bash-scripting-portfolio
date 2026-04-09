@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+thing=$(( 2 + 2))
+echo "thing is $thing"
+
+a=5
+b=2
+echo $(( $a * $b))
+
+c=2
+c=5
+
+((c = a * b))
+echo "c is $c"
+
+a=10
+if ((a % 2)); then
+	echo odd
+else
+	echo even
+fi
