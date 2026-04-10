@@ -129,5 +129,11 @@ This document serves as a quick reference guide for all the command-line tools, 
 | `` `cmd` `` | *None* | The old, legacy syntax for command substitution. Avoid this, as nesting them requires complex escaping. | `` echo `echo \`whoami\`` `` |
 | `$(cmd)` | *None* | Command substitution (modern). Runs the command in a **subshell**. Any global variables modified inside it are lost as soon as it ends. It is very easy to nest. | `echo $(echo $(whoami))` |
 | `{ cmd; }` | *None* | Command grouping. Groups commands together but runs them in the **main shell** (no subshell). Variable modifications made inside remain permanent. Note the required spaces and semicolon. | `{ func; }` |
+| `$((a + b))` | *None* | Arithmetic expansion. Evaluates math. Variables inside do not need the `$` prefix. | `echo $((x + 5))` |
+| `**` | *None* | Exponentiation operator (power). | `echo $((5**2))` |
+| `<<` / `>>` | *None* | Bitwise left and right shift operators. | `$((1 << 5))` |
+| `a > b ? a : b` | *None* | Ternary operator. Acts like an inline if-else statement. | `max=$((a>b?a:b))` |
+| `10#` | *None* | Forces a number to be evaluated in base 10. Bash normally treats numbers starting with `0` as octal (base 8). | `echo $((10#08))` |
+| Math Exit Codes | *None* | If the mathematical result is `0`, the command returns a failure exit code (`1`). If non-zero, it returns success (`0`). Beware when using `set -e`! | `((0))` (fails)<br>`((1))` (succeeds) |
 ---
 *Note: This cheat sheet is a living document and will expand as I cover more advanced topics like awk, sed, find, and specific bash parameters.*
