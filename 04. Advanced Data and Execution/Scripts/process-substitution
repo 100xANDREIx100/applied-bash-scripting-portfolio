@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+
+i=0
+while read -r word; do
+	echo "$word"
+	((i++))
+done < <(grep d /usr/share/dict/words)
+
+#after the pipe it is executed in a subshell
+# i=0
+# grep d /usr/share/dict/words | while read -r word; do
+# 	echo "$word"
+# 	((i++))
+# done 
+
+#usage of herestring
+# words=$(grep d /usr/share/dict/words)
+# i=0
+# while read -r word; do
+# 	echo "$word"
+# 	((i++))
+# done <<< "$words"
+
+#one string with all words separated by newlines
+# i=0
+# for word in "$words"; do
+# 	echo "$word"
+# 	((i++))
+# done
+
+
+#risky to use
+# i=0
+# for word in $words; do
+# 	echo "$word"
+# 	((i++))
+# done
+
+echo "found $i words"
