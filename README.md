@@ -59,7 +59,7 @@ Once the `scripts/` directories are populated, you can run any of the Bash scrip
 - [x] 04-03 IFS Variable
 - [x] 04-04 Command Substitution
 - [x] 04-05 Arithmetic Expression
-- [ ] 04-06 Process Substitution
+- [x] 04-06 Process Substitution
 - [ ] 04-07 Chapter 4 Recap
 
 **Section 05: Text Processing & Searching**

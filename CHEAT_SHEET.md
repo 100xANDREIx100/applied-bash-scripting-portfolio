@@ -25,7 +25,7 @@ This document serves as a quick reference guide for all the command-line tools, 
 | :--- | :--- | :--- | :--- |
 | `cat` | *None* | Print the content of a file to the terminal. | `cat config.json` |
 | `echo` | *None* | Print text to the terminal. <br> used with `>` for overwriting <br> used with `>>` for appending | `echo "Hello" >> log.txt` |
-| `grep` | `-i` (case-insensitive)<br>`-o` (only matching text)<br>`-A N` (show N lines After)<br>`-B N` (show N lines Before)<br> `-C N`(show N lines Before and After) | Search for specific patterns within files. | `grep -i "error" log.txt` |
+| `grep` | `-i` (case-insensitive)<br>`-o` (only matching text)<br>`-A N` (show N lines After)<br>`-B N` (show N lines Before)<br> `-C N`(show N lines Before and After) <br> `-c` count matching lines | Search for specific patterns within files. | `grep -i "error" log.txt` |
 | `less` | `/pattern` (search forward)<br>`n` (next match)<br>`Shift+n` (previous match) <br>`q` (quit) <br>`k`, `j`, `Up/Down Arrows` (move up and down) | Page through output or large files interactively. | `less massive_data.csv` |
 | `more` | same as `less` | same as `less` | `more massive_data.csv` |
 | `tr` | `-d` (delete characters) | Translate, or delete characters from standard input. | `cat log.txt \| tr 'a-z' 'A-Z'` |
@@ -135,5 +135,8 @@ This document serves as a quick reference guide for all the command-line tools, 
 | `a > b ? a : b` | *None* | Ternary operator. Acts like an inline if-else statement. | `max=$((a>b?a:b))` |
 | `10#` | *None* | Forces a number to be evaluated in base 10. Bash normally treats numbers starting with `0` as octal (base 8). | `echo $((10#08))` |
 | Math Exit Codes | *None* | If the mathematical result is `0`, the command returns a failure exit code (`1`). If non-zero, it returns success (`0`). Beware when using `set -e`! | `((0))` (fails)<br>`((1))` (succeeds) |
+| `<(cmd)` <br> `>(cmd)` | *None* | Process substitution. Runs a command and treats its input/output as a temporary file. Perfect for commands that require file arguments instead of standard input. | `diff <(ls dir1) <(ls dir2)` |
+| `<<<` | *None* | Here string. Feeds a string or variable directly into a command's standard input. A cleaner, safer alternative to piping `echo "$var" | cmd`. | `while read -r word; do ... done <<< "$words"` |
+| `|` (Subshell Trap) | *None* | **Warning:** Everything to the right of a pipe is executed in a **subshell**. Any variable modifications made after a pipe are lost when the command finishes! | `cat file \| while read x; do var=$x; done` (var is lost) |
 ---
 *Note: This cheat sheet is a living document and will expand as I cover more advanced topics like awk, sed, find, and specific bash parameters.*
