@@ -138,5 +138,6 @@ This document serves as a quick reference guide for all the command-line tools, 
 | `<(cmd)` <br> `>(cmd)` | *None* | Process substitution. Runs a command and treats its input/output as a temporary file. Perfect for commands that require file arguments instead of standard input. | `diff <(ls dir1) <(ls dir2)` |
 | `<<<` | *None* | Here string. Feeds a string or variable directly into a command's standard input. A cleaner, safer alternative to piping `echo "$var" | cmd`. | `while read -r word; do ... done <<< "$words"` |
 | `|` (Subshell Trap) | *None* | **Warning:** Everything to the right of a pipe is executed in a **subshell**. Any variable modifications made after a pipe are lost when the command finishes! | `cat file \| while read x; do var=$x; done` (var is lost) |
+|`shift`|**None**|Move the array of arguments by one|`shift`|
 ---
 *Note: This cheat sheet is a living document and will expand as I cover more advanced topics like awk, sed, find, and specific bash parameters.*
