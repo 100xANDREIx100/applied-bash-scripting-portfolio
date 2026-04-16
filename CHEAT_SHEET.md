@@ -29,6 +29,7 @@ This document serves as a quick reference guide for all the command-line tools, 
 | `less` | `/pattern` (search forward)<br>`n` (next match)<br>`Shift+n` (previous match) <br>`q` (quit) <br>`k`, `j`, `Up/Down Arrows` (move up and down) | Page through output or large files interactively. | `less massive_data.csv` |
 | `more` | same as `less` | same as `less` | `more massive_data.csv` |
 | `tr` | `-d` (delete characters) | Translate, or delete characters from standard input. | `cat log.txt \| tr 'a-z' 'A-Z'` |
+| `cut` | `-d` (delimiter)<br>`-f` (field/column) | Extracts sections from each line based on a delimiter. Fields can be selected by index: `1` (first), `1-3` (range), `1,3` (specific), or `3-` (onwards). **Note:** It splits literally, so it is not a robust CSV parser if fields contain escaped commas. | `cut -d ',' -f 1,3 data.csv` |
 
 ## ⌨️ 4. Terminal Shortcuts & History
 | Shortcut / Command | Description |

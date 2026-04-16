@@ -63,7 +63,7 @@ Once the `scripts/` directories are populated, you can run any of the Bash scrip
 - [x] 04-07 Chapter 4 Recap
 
 **Section 05: Text Processing & Searching**
-- [ ] 05-00 cut and tr
+- [x] 05-00 cut and tr
 - [ ] 05-01 sed, awk, and grep
 - [ ] 05-02 Find Command
 
