@@ -30,6 +30,11 @@ This document serves as a quick reference guide for all the command-line tools, 
 | `more` | same as `less` | same as `less` | `more massive_data.csv` |
 | `tr` | `-d` (delete characters) | Translate, or delete characters from standard input. | `cat log.txt \| tr 'a-z' 'A-Z'` |
 | `cut` | `-d` (delimiter)<br>`-f` (field/column) | Extracts sections from each line based on a delimiter. Fields can be selected by index: `1` (first), `1-3` (range), `1,3` (specific), or `3-` (onwards). **Note:** It splits literally, so it is not a robust CSV parser if fields contain escaped commas. | `cut -d ',' -f 1,3 data.csv` |
+| `sed` | `-e` (chain expressions) | Stream editor. Substitutes text using regex. Syntax: `s/old/new/`. You can change the delimiter `/` to `#` or `@` if your text contains slashes. | `sed 's/error/warning/' log.txt` |
+| `awk` | `-F` (set delimiter) | Powerful text processing language. `$0` prints the whole line, `$1` prints the first column. Supports conditionals and `printf` formatting. | `awk -F: '$1=="root" {print $7}' /etc/passwd` |
+| `sort` | *None* | Sorts lines of text input alphabetically (or numerically with flags). | `sort data.txt` |
+| `uniq` | `-c` (count frequency) | Filters out adjacent duplicate lines. **Must** be used on sorted data to work properly. Use `-c` to count occurrences. | `sort data.txt \| uniq -c` |
+| `wc` | `-l` (lines)<br>`-w` (words)<br>`-c` (characters) | Word count utility. Outputs the number of lines, words, and characters in a file or piped input. | `wc -l script.sh` |
 
 ## ⌨️ 4. Terminal Shortcuts & History
 | Shortcut / Command | Description |
