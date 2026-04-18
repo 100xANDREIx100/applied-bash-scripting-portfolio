@@ -35,6 +35,10 @@ This document serves as a quick reference guide for all the command-line tools, 
 | `sort` | *None* | Sorts lines of text input alphabetically (or numerically with flags). | `sort data.txt` |
 | `uniq` | `-c` (count frequency) | Filters out adjacent duplicate lines. **Must** be used on sorted data to work properly. Use `-c` to count occurrences. | `sort data.txt \| uniq -c` |
 | `wc` | `-l` (lines)<br>`-w` (words)<br>`-c` (characters) | Word count utility. Outputs the number of lines, words, and characters in a file or piped input. | `wc -l script.sh` |
+| `find` | `-type f` (files)<br>`-type d` (directories)<br>`-type l` (symlinks)<br>`-name` (search by name) | Searches recursively for files in a directory hierarchy. **Note:** The order of arguments matters! Always put the path first, then the filters. | `find . -type f -name "*.txt"` |
+| `-exec` | *None* | A flag for `find` that executes a command on each file it finds. `{}` represents the current file. Must end with `\;` (one by one) or `+` (all at once). | `find . -name "*.bak" -exec rm {} \;` |
+| `-print0` | *None* | A flag for `find` that separates output using a null byte instead of a newline. Crucial for handling file names that contain spaces. | `find . -type f -print0` |
+| `xargs` | `-0` (read null bytes) | Takes standard input and passes it as arguments to another command. Used to batch process output. Use `-0` when pairing with `find -print0`. | `find . -name "*.txt" -print0 \| xargs -0 rm` |
 
 ## ⌨️ 4. Terminal Shortcuts & History
 | Shortcut / Command | Description |
