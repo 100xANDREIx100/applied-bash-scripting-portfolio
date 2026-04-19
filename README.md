@@ -68,7 +68,7 @@ Once the `scripts/` directories are populated, you can run any of the Bash scrip
 - [x] 05-02 Find Command
 
 **Section 06: Execution & Debugging**
-- [ ] 06-00 Bash Arguments
+- [x] 06-00 Bash Arguments
 - [ ] 06-01 Pipe Status
 - [ ] 06-02 Timing Commands
 

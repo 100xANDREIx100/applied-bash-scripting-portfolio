@@ -149,5 +149,15 @@ This document serves as a quick reference guide for all the command-line tools, 
 | `<<<` | *None* | Here string. Feeds a string or variable directly into a command's standard input. A cleaner, safer alternative to piping `echo "$var" | cmd`. | `while read -r word; do ... done <<< "$words"` |
 | `|` (Subshell Trap) | *None* | **Warning:** Everything to the right of a pipe is executed in a **subshell**. Any variable modifications made after a pipe are lost when the command finishes! | `cat file \| while read x; do var=$x; done` (var is lost) |
 |`shift`|**None**|Move the array of arguments by one|`shift`|
+
+## 🐛 10. Execution and Debugging
+
+| Command / Syntax | Common Flags & Meanings | Description | Example |
+| :--- | :--- | :--- | :--- |
+| `bash` | `-x` (debug/trace mode)<br>`-u` (nounset) | `-x` runs a script while printing every command before it executes. `-u` forces the script to fail if it encounters an undefined variable (by default, Bash just treats them as empty strings). | `bash -x script.sh`<br>`bash -u script.sh` |
+| `set -x` <br> `set +x` | *None* | Turns debugging on (`-x`) and off (`+x`) for a specific section *inside* a script, rather than debugging the whole file. | `set -x`<br>`# broken code here`<br>`set +x` |
+| `PS4` | *None* | A special environment variable that dictates what the debug prompt looks like when using `-x`. | `PS4='+ $LINENO: '` |
+| `VAR=value cmd` | *None* | Sets an environment variable strictly for the duration of that single script or command run, without permanently adding it to your shell. | `DEBUG=1 ./script.sh` |
+| `shellcheck` | *None* | A powerful external linter and static analysis tool. It scans your script and points out bugs, bad practices, and syntax errors before you even run it. | `shellcheck script.sh` |
 ---
 *Note: This cheat sheet is a living document and will expand as I cover more advanced topics like awk, sed, find, and specific bash parameters.*
