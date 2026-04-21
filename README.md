@@ -70,7 +70,7 @@ Once the `scripts/` directories are populated, you can run any of the Bash scrip
 **Section 06: Execution & Debugging**
 - [x] 06-00 Bash Arguments
 - [x] 06-01 Pipe Status
-- [ ] 06-02 Timing Commands
+- [x] 06-02 Timing Commands
 
 **Section 07: Code Architecture**
 - [ ] 07-00 Sourcing Code

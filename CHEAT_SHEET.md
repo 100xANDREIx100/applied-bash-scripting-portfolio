@@ -161,5 +161,7 @@ This document serves as a quick reference guide for all the command-line tools, 
 | `shellcheck` | *None* | A powerful external linter and static analysis tool. It scans your script and points out bugs, bad practices, and syntax errors before you even run it. | `shellcheck script.sh` |
 | `set -o pipefail` | *None* | Changes pipeline behavior. Instead of returning the exit code of only the last command, the pipeline will fail if *any* command within it fails. | `set -o pipefail` |
 | `${PIPESTATUS[@]}` | *None* | A special array holding the individual exit codes of *all* commands in the most recently executed pipeline. (Your notes show `*`, but `[@]` is generally safer for array expansion). | `cmd1 \| cmd2`<br>`echo "${PIPESTATUS[@]}"` |
+| `time` | *None* | Measures how long a command takes to execute. Outputs `real` (actual wall-clock time), `user` (CPU time spent processing), and `sys` (CPU time spent in the kernel/system calls). | `time ./script.sh` |
+| `top` | *None* | Displays real-time system statistics and resource usage (CPU, memory, and running processes). | `top` |
 ---
 *Note: This cheat sheet is a living document and will expand as I cover more advanced topics like awk, sed, find, and specific bash parameters.*
