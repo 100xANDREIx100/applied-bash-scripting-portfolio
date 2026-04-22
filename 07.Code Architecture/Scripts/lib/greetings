@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+greet() {
+	echo "hi $1"
+}
+
+goodbye() {
+	echo "bye $1"
+}
+
+if !(return 2>/dev/null); then
+	greet me
+	goodbye you
+fi
+

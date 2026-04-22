@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# also works with:
+# . ./lib/greetings
+source ./lib/greetings || exit 1
+
+goodbye dave
+greet andrei
+goodbye buddy
