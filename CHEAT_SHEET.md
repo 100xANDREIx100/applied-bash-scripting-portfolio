@@ -163,5 +163,12 @@ This document serves as a quick reference guide for all the command-line tools, 
 | `${PIPESTATUS[@]}` | *None* | A special array holding the individual exit codes of *all* commands in the most recently executed pipeline. (Your notes show `*`, but `[@]` is generally safer for array expansion). | `cmd1 \| cmd2`<br>`echo "${PIPESTATUS[@]}"` |
 | `time` | *None* | Measures how long a command takes to execute. Outputs `real` (actual wall-clock time), `user` (CPU time spent processing), and `sys` (CPU time spent in the kernel/system calls). | `time ./script.sh` |
 | `top` | *None* | Displays real-time system statistics and resource usage (CPU, memory, and running processes). | `top` |
+
+## 🏗️ 11. Code Architecture
+
+| Command / Syntax | Common Flags & Meanings | Description | Example |
+| :--- | :--- | :--- | :--- |
+| `source` <br> `.` (dot) | `-p` selects a file from a defined variable | Reads and executes commands from a file in the *current* shell environment. Useful for loading functions or variables like a library. The code inside is executed immediately upon import. | `source ./library.sh`<br>`. ./library.sh` |
+| `if ! (return 0 2>/dev/null); then` | *None* | A clever idiom to check if a script is being run directly. `return` fails if the script is run directly (rather than sourced). Put the code you only want executed directly inside the `then` block. | `if ! (return 0 2>/dev/null); then`<br>`echo "Run directly"`<br>`fi` |
 ---
 *Note: This cheat sheet is a living document and will expand as I cover more advanced topics like awk, sed, find, and specific bash parameters.*
