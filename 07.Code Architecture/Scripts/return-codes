@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# uname
+# echo $?
+
+my-func(){
+	echo "this goes to stdout" >&1
+	echo "this goes to stderr" >&2
+	return 45
+}
+
+var=$(my-func 2>&1 >/dev/null)
+code=$?
+echo "output = $var, code = $code"
