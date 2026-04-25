@@ -75,7 +75,7 @@ Once the `scripts/` directories are populated, you can run any of the Bash scrip
 **Section 07: Code Architecture**
 - [x] 07-00 Sourcing Code
 - [x] 07-01 Curlies vs. Parens
-- [ ] 07-02 Return vs. Output
+- [x] 07-02 Return vs. Output
 - [ ] 07-03 Chapter 7 Recap
 
 **Section 08: Parameter Handling**

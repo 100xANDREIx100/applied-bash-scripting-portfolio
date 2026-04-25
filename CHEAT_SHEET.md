@@ -172,5 +172,7 @@ This document serves as a quick reference guide for all the command-line tools, 
 | `source` <br> `.` (dot) | `-p` selects a file from a defined variable | Reads and executes commands from a file in the *current* shell environment. Useful for loading functions or variables like a library. The code inside is executed immediately upon import. | `source ./library.sh`<br>`. ./library.sh` |
 | `if ! (return 0 2>/dev/null); then` | *None* | A clever idiom to check if a script is being run directly. `return` fails if the script is run directly (rather than sourced). Put the code you only want executed directly inside the `then` block. | `if ! (return 0 2>/dev/null); then`<br>`echo "Run directly"`<br>`fi` |
 | `name() (` <br> body <br> `)` | *None* | Defines a function that executes entirely within a **subshell** (using `()` instead of `{}`). Any variables modified or exported inside this function are safely destroyed when it finishes, protecting your global scope. | `sandbox() (` <br> `cd /tmp && ls` <br> `)` |
+| `return 255` | *None* | Return codes in Bash are strictly limited to 8-bit integers (0 to 255). If you try to return 256, it wraps around to 0 (success)! | `return 1` |
+| `2>&1 >/dev/null` | *None* | Sliences the standard output and returns the standard error as the standard output| `cmd > /dev/null 2>&1` |
 ---
 *Note: This cheat sheet is a living document and will expand as I cover more advanced topics like awk, sed, find, and specific bash parameters.*
