@@ -100,6 +100,7 @@ This document serves as a quick reference guide for all the command-line tools, 
 |`&0`,`&1`,`&2`|**None**|File descriptors used to manage data streams. &0 is standard input, &1 is standard output, and &2 is standard error.|`command > out.txt 2>&1`|
 |`exit`|**None**|Stops the entire script and sets an exit code. Inside a script, outside a function, you cannot use return; the solution is to use exit (code).|`exit 1`|
 |`elif`|**None**|Short for "else if". Used in if statements to chain multiple conditional checks together.|`elif [[ $var == 2 ]]; then`|
+| `continue` | *None* | Skips the rest of the current loop iteration and immediately starts the next one. Often used with `if` statements to bypass specific conditions. | `for i in {1..3}; do`<br>`if [[ $i == 2 ]]; then continue; fi`<br>`echo $i`<br>`done` |
 
 ## ⚙️ 7. Environment & Shell Customization
 | Command | Common Flags & Meanings | Description | Example |

@@ -76,7 +76,7 @@ Once the `scripts/` directories are populated, you can run any of the Bash scrip
 - [x] 07-00 Sourcing Code
 - [x] 07-01 Curlies vs. Parens
 - [x] 07-02 Return vs. Output
-- [ ] 07-03 Chapter 7 Recap
+- [x] 07-03 Chapter 7 Recap
 
 **Section 08: Parameter Handling**
 - [ ] 08-00 Parameter Expansion
