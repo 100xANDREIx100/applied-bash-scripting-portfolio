@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+#name=${1:-Steve}
+name=${1:-$USER}
+para=${1:?'you must provide a name'}
+echo "hello $name!"
+
+echo "done"
