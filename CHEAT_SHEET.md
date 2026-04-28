@@ -175,5 +175,21 @@ This document serves as a quick reference guide for all the command-line tools, 
 | `name() (` <br> body <br> `)` | *None* | Defines a function that executes entirely within a **subshell** (using `()` instead of `{}`). Any variables modified or exported inside this function are safely destroyed when it finishes, protecting your global scope. | `sandbox() (` <br> `cd /tmp && ls` <br> `)` |
 | `return 255` | *None* | Return codes in Bash are strictly limited to 8-bit integers (0 to 255). If you try to return 256, it wraps around to 0 (success)! | `return 1` |
 | `2>&1 >/dev/null` | *None* | Sliences the standard output and returns the standard error as the standard output| `cmd > /dev/null 2>&1` |
+
+## 🔠 12. Parameter Handling & Expansion
+
+| Command / Syntax | Common Flags & Meanings | Description | Example |
+| :--- | :--- | :--- | :--- |
+| `${var^}` <br> `${var^^}` | *None* | Capitalizes the first letter (`^`) or the entire string (`^^`).  You can also target specific characters like `${var^^d}`. | `echo ${name^^}` |
+| `${var,}` <br> `${var,,}` | *None* | Lowercases the first letter (`,`) or the entire string (`,,`). | `echo ${name,,}` |
+| `${var:-default}` | *None* | Sets a default value.  If `var` is unset or empty, it returns the `default` value instead.  (Using just `-` instead of `:-` allows empty strings ). | `file=${1:-"config.txt"}` |
+| `${var:?msg}` | *None* | Enforces that a parameter is required.  If `var` is unset or empty, the script aborts and prints `msg`.  (Using `?` without `:` allows empty strings ). | `file=${1:?"Missing arg"}` |
+| `${var/old/new}` <br> `${var//old/new}` | *None* | String replacement.  A single `/` replaces the first occurrence.  A double `//` replaces all occurrences. | `echo ${path// /_}` |
+| `${var#pattern}` <br> `${var##pattern}` | *None* | Deletes the shortest (`#`) or longest (`##`) match from the **beginning** of the string.  Great for stripping directory paths to get a filename (`${var##*/}`). | `echo ${var##*/}` |
+| `${var%pattern}` <br> `${var%%pattern}` | *None* | The opposite of `#`.  Deletes the shortest (`%`) or longest (`%%`) match from the **end** of the string. Great for removing file extensions (`${var%.*}`). | `echo ${var%.*}` |
+| `${var:offset:len}` | *None* | Substring extraction.  Starts at the `offset` index and extracts `len` characters.  Use a negative offset with a space (e.g., `: -3`) to start from the end of the string. | `echo ${var:0:5}` |
+| `${var@A}` | *None* | Parameter transformation. Expands to a string in the form of an assignment statement that can be evaluated safely in the shell. | `echo ${var@A}` |
+| `${var@Q}` | *None* | Parameter transformation. Safely quotes the variable's value for shell input. | `echo ${var@Q}` |
+| `dirname $path` <br> `basename $path` | *None* | External utilities that extract just the directory name or just the file name  from a full path string. | `basename /var/log/syslog` |
 ---
 *Note: This cheat sheet is a living document and will expand as I cover more advanced topics like awk, sed, find, and specific bash parameters.*

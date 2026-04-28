@@ -79,7 +79,7 @@ Once the `scripts/` directories are populated, you can run any of the Bash scrip
 - [x] 07-03 Chapter 7 Recap
 
 **Section 08: Parameter Handling**
-- [ ] 08-00 Parameter Expansion
+- [x] 08-00 Parameter Expansion
 - [ ] 08-01 Array Expansion
 
 **Section 09: Globbing (Pattern Matching)**
