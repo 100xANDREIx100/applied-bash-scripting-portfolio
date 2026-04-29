@@ -191,5 +191,8 @@ This document serves as a quick reference guide for all the command-line tools, 
 | `${var@A}` | *None* | Parameter transformation. Expands to a string in the form of an assignment statement that can be evaluated safely in the shell. | `echo ${var@A}` |
 | `${var@Q}` | *None* | Parameter transformation. Safely quotes the variable's value for shell input. | `echo ${var@Q}` |
 | `dirname $path` <br> `basename $path` | *None* | External utilities that extract just the directory name or just the file name  from a full path string. | `basename /var/log/syslog` |
+| `printf '%s\n' "${arr[@]}"` | *None* | Iterates through an array and prints each element using the format specifier (e.g., `%s\n` for a new line per element). Much faster than a `for` loop! | `printf '%s\n' "${fruits[@]}"` |
+| `"${arr[@]:offset:len}"` | *None* | Array slicing. Starts at the `offset` index and grabs `len` number of elements from the array. | `echo "${arr[@]:1:2}"` |
+| `"${arr[@]/old/new}"` | *None* | Array search and replace. Applies the find-and-replace logic to *every* element in the entire array at once. | `echo "${arr[@]/apple/orange}"` |
 ---
 *Note: This cheat sheet is a living document and will expand as I cover more advanced topics like awk, sed, find, and specific bash parameters.*

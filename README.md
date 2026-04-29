@@ -80,7 +80,7 @@ Once the `scripts/` directories are populated, you can run any of the Bash scrip
 
 **Section 08: Parameter Handling**
 - [x] 08-00 Parameter Expansion
-- [ ] 08-01 Array Expansion
+- [x] 08-01 Array Expansion
 
 **Section 09: Globbing (Pattern Matching)**
 - [ ] 09-00 Basic Globbing
