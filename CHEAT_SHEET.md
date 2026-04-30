@@ -6,7 +6,7 @@ This document serves as a quick reference guide for all the command-line tools, 
 | Command | Common Flags & Meanings | Description | Example |
 | :--- | :--- | :--- | :--- |
 | `pwd` | *None* | Print working directory (current path). | `pwd` |
-| `ls` | `-a` (show hidden/all) <br> `-l` (long listing) | List directory contents. | `ls -a` |
+| `ls` | `-a` (show hidden/all) <br> `-l` (long listing) <br> `-1` one per line/column | List directory contents. | `ls -a` |
 | `cd` | `-` (jump to previous dir)<br> `..` (jump to parent dir) | Change directory. | `cd /var/log` |
 | `whoami` | *None* | displays logged user | `whoami` |
 | `uname` | `-a` (all information) | displays system's name | `uname -a` |
@@ -56,6 +56,8 @@ This document serves as a quick reference guide for all the command-line tools, 
 | Wildcard | Description | Example |
 | :--- | :--- | :--- |
 | `*` (Asterisk) | Matches zero or more characters of any type. Useful for acting on multiple files at once. | `rm *.txt` (removes all .txt files)<br>`ls doc*` (lists files starting with "doc") |
+| `?` (Question Mark) | Matches exactly one single character[cite: 20]. It "has to be something" (it cannot match zero characters)[cite: 20]. | `ls file?.txt` (matches file1.txt, but not file10.txt) |
+| `[abc]` (Brackets) | Matches exactly one character from the specified set[cite: 20]. It will match anything that has 'a', 'b', or 'c' in that specific position[cite: 20]. | `ls [ab]*.txt` (matches apple.txt and banana.txt) |
 
 ### Basic Regular Expressions (Text Matching)
 | Symbol | Description | Example |
