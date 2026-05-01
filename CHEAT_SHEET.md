@@ -56,8 +56,19 @@ This document serves as a quick reference guide for all the command-line tools, 
 | Wildcard | Description | Example |
 | :--- | :--- | :--- |
 | `*` (Asterisk) | Matches zero or more characters of any type. Useful for acting on multiple files at once. | `rm *.txt` (removes all .txt files)<br>`ls doc*` (lists files starting with "doc") |
-| `?` (Question Mark) | Matches exactly one single character[cite: 20]. It "has to be something" (it cannot match zero characters)[cite: 20]. | `ls file?.txt` (matches file1.txt, but not file10.txt) |
-| `[abc]` (Brackets) | Matches exactly one character from the specified set[cite: 20]. It will match anything that has 'a', 'b', or 'c' in that specific position[cite: 20]. | `ls [ab]*.txt` (matches apple.txt and banana.txt) |
+| `?` (Question Mark) | Matches exactly one single character. It "has to be something" (it cannot match zero characters. | `ls file?.txt` (matches file1.txt, but not file10.txt) |
+| `[abc]` (Brackets) | Matches exactly one character from the specified set. It will match anything that has 'a', 'b', or 'c' in that specific position. | `ls [ab]*.txt` (matches apple.txt and banana.txt) |
+
+### Extended Globbing (`extglob`)
+*Note: Extended globbing must be enabled using `shopt -s extglob` before these patterns will work.*
+
+| Pattern | Description | Example |
+| :--- | :--- | :--- |
+| `?(list)` | Matches **0 or 1** occurrence of the given patterns. | `ls ?(a\|b).txt` |
+| `*(list)` | Matches **0 or many** occurrences of the given patterns. | `ls *(a\|b).txt` |
+| `+(list)` | Matches **1 or many** occurrences of the given patterns. | `ls +(a\|b).txt` |
+| `@(list)` | **Must match exactly** one of the given patterns. | `ls @(a\|b).txt` |
+| `!(list)` | **Negates** the glob; matches anything EXCEPT the given patterns. | `rm !(*.txt)` |
 
 ### Basic Regular Expressions (Text Matching)
 | Symbol | Description | Example |
@@ -113,6 +124,8 @@ This document serves as a quick reference guide for all the command-line tools, 
 | `unset` | *None* | Delete a previously defined variable from the shell session. | `unset name` |
 | `$(cmd)` | *None* | Command Substitution: evaluates the command inside and replaces it with its output. | `files=$(ls -a)` |
 |`$?`|*None*|variable that stores the exit code of the last command|`echo $?`|
+| `shopt` | `-s` (set/turn on) <br> `-u` (unset/turn off) | Shell option built-in. Used to toggle optional shell behaviors. Running `shopt extglob` without flags checks its current state. | `shopt -s extglob` |
+| `set` | `+H` (disable) <br> `-H` (enable) | Controls history expansion. Disabling history (`+H`) is often required to safely use the `!` character for extended globbing negation. | `set +H` |
 
 ## 📚 8. Help & Command Identification
 | Command | Common Flags & Meanings | Description | Example |
