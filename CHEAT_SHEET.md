@@ -69,6 +69,14 @@ This document serves as a quick reference guide for all the command-line tools, 
 | `+(list)` | Matches **1 or many** occurrences of the given patterns. | `ls +(a\|b).txt` |
 | `@(list)` | **Must match exactly** one of the given patterns. | `ls @(a\|b).txt` |
 | `!(list)` | **Negates** the glob; matches anything EXCEPT the given patterns. | `rm !(*.txt)` |
+### Globbing Shell Options (`shopt`)
+*Note: Enable these using `shopt -s <option>` and disable with `shopt -u <option>`.*
+
+| Option | Description | Example |
+| :--- | :--- | :--- |
+| `nullglob` | If a glob pattern matches nothing, it expands to nothing (an empty string) instead of passing the literal pattern string[cite: 20]. | `shopt -s nullglob` |
+| `dotglob` | Allows standard wildcards to match hidden files (dotfiles)[cite: 20]. | `shopt -s dotglob` |
+| `globstar` | Enables recursive globbing[cite: 20]. The `**` pattern will match all files and zero or more directories and subdirectories[cite: 20]. | `ls **/*.txt` |
 
 ### Basic Regular Expressions (Text Matching)
 | Symbol | Description | Example |

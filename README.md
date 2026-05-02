@@ -85,7 +85,7 @@ Once the `scripts/` directories are populated, you can run any of the Bash scrip
 **Section 09: Globbing (Pattern Matching)**
 - [x] 09-00 Basic Globbing
 - [x] 09-01 Extended Globbing
-- [ ] 09-02 Glob Shell Options
+- [x] 09-02 Glob Shell Options
 
 **Section 10: Brace Expansions**
 - [ ] 10-00 Brace Expansion
