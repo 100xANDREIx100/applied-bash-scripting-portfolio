@@ -217,5 +217,12 @@ This document serves as a quick reference guide for all the command-line tools, 
 | `printf '%s\n' "${arr[@]}"` | *None* | Iterates through an array and prints each element using the format specifier (e.g., `%s\n` for a new line per element). Much faster than a `for` loop! | `printf '%s\n' "${fruits[@]}"` |
 | `"${arr[@]:offset:len}"` | *None* | Array slicing. Starts at the `offset` index and grabs `len` number of elements from the array. | `echo "${arr[@]:1:2}"` |
 | `"${arr[@]/old/new}"` | *None* | Array search and replace. Applies the find-and-replace logic to *every* element in the entire array at once. | `echo "${arr[@]/apple/orange}"` |
+
+## 🗂️ 13. Brace Expansions
+
+| Command / Syntax | Common Flags & Meanings | Description | Example |
+| :--- | :--- | :--- | :--- |
+| `{...}` | *None* | Brace expansion. Unquoted curly braces are evaluated by Bash and expand into multiple separate strings. | `echo {A,B,C}`<br>*(Outputs: A B C)* |
+| `"{}"` | *None* | Literal string. Putting quotes around curly braces prevents Bash from expanding them, treating them as literal text instead. | `echo "{A,B,C}"`<br>*(Outputs: {A,B,C})* |
 ---
 *Note: This cheat sheet is a living document and will expand as I cover more advanced topics like awk, sed, find, and specific bash parameters.*

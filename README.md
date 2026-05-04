@@ -88,7 +88,7 @@ Once the `scripts/` directories are populated, you can run any of the Bash scrip
 - [x] 09-02 Glob Shell Options
 
 **Section 10: Brace Expansions**
-- [ ] 10-00 Brace Expansion
+- [x] 10-00 Brace Expansion
 - [ ] 10-01 Braces and Globbing
 - [ ] 10-02 Numeric Brace Expansion
 
