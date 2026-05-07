@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+#kinda bad
+# for i in $(seq 1 10); do
+# 	echo "$i"
+# done
+
+for i in {1..10}; do
+	echo "$i"
+done;
+
+echo "many different things"
+for i in foo bar {1..10} baz {1..4}; do
+	echo "$i"
+done;
+
+echo "skipping:"
+for i in {1..100..7}; do
+	echo "$i"
+done;
