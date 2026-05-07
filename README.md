@@ -90,7 +90,7 @@ Once the `scripts/` directories are populated, you can run any of the Bash scrip
 **Section 10: Brace Expansions**
 - [x] 10-00 Brace Expansion
 - [x] 10-01 Braces and Globbing
-- [ ] 10-02 Numeric Brace Expansion
+- [x] 10-02 Numeric Brace Expansion
 
 **Section 11: Formatting & Parsing Data**
 - [ ] 11-00 Understanding printf

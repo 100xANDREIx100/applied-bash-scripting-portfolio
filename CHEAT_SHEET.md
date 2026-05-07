@@ -224,5 +224,8 @@ This document serves as a quick reference guide for all the command-line tools, 
 | :--- | :--- | :--- | :--- |
 | `{...}` | *None* | Brace expansion. Unquoted curly braces are evaluated by Bash and expand into multiple separate strings. | `echo {A,B,C}`<br>*(Outputs: A B C)* |
 | `"{}"` | *None* | Literal string. Putting quotes around curly braces prevents Bash from expanding them, treating them as literal text instead. | `echo "{A,B,C}"`<br>*(Outputs: {A,B,C})* |
+| `{x..y}` | *None* | Sequence generation. Expands to a sequence from `x` to `y` (inclusive). Works perfectly for both numbers and letters. | `echo {1..5}`<br>`echo {a..e}` |
+| `{x..y..step}` | *None* | Sequence with a step. Generates a sequence from `x` to `y`, but increments by the `step` amount. | `echo {1..10..2}`<br>*(Outputs: 1 3 5 7 9)* |
+| `{0x..y}` | *None* | Zero-padding. If you add a leading zero to the start number, Bash will automatically pad all generated numbers to match that exact width. | `echo {01..10}`<br>*(Outputs: 01 02 ... 10)* |
 ---
 *Note: This cheat sheet is a living document and will expand as I cover more advanced topics like awk, sed, find, and specific bash parameters.*
