@@ -227,5 +227,18 @@ This document serves as a quick reference guide for all the command-line tools, 
 | `{x..y}` | *None* | Sequence generation. Expands to a sequence from `x` to `y` (inclusive). Works perfectly for both numbers and letters. | `echo {1..5}`<br>`echo {a..e}` |
 | `{x..y..step}` | *None* | Sequence with a step. Generates a sequence from `x` to `y`, but increments by the `step` amount. | `echo {1..10..2}`<br>*(Outputs: 1 3 5 7 9)* |
 | `{0x..y}` | *None* | Zero-padding. If you add a leading zero to the start number, Bash will automatically pad all generated numbers to match that exact width. | `echo {01..10}`<br>*(Outputs: 01 02 ... 10)* |
+| `{1..$n}` <br> *(Anti-pattern)* | *None* | **Warning:** Brace expansion does NOT work with variables! Bash expands braces *before* variables, so something like `{1..$n}` will literally output "1..$n" instead of a sequence. | `n=5; echo {1..$n}` *(Fails)* |
+
+## 🖨️ 14. Formatted Output (`printf`)
+
+| Command / Syntax | Common Specifiers | Description | Example |
+| :--- | :--- | :--- | :--- |
+| `printf` | `%s` (string)<br>`%d` (integer)<br>`\n` (newline) | Prints formatted data. **Security Warning:** Never pass user-specified data as the first argument. Always use format specifiers. | `printf '%s\n' "$var"` (Safe)<br>`printf "$var"` (Unsafe!) |
+| Padding | `%ns`<br>`%nd` | Pads the argument up to `n` width with whitespaces. Adding a `0` to numbers (`%0nd`) pads with zeros instead. | `printf '%5s' "hi"`<br>*(Outputs: "   hi")* |
+| Alignment | `%-ns` | A negative sign pads to the right, effectively left-aligning the text within the `n` width space. | `printf '%-5s' "hi"`<br>*(Outputs: "hi   ")* |
+| Dynamic Width | `%*s` | Allows you to pass the padding width `n` as an argument right before the string, making widths dynamic! | `printf '%*s\n' 10 "text"` |
+| Shell Quoting | `%q` | Formats data in a shell-friendly way by automatically escaping special characters. Great for generating safe commands. | `printf '%q\n' "file name.txt"` |
+| Escape Codes | `%b` | Interprets raw backslash escape sequences (like `\n` or `\t`) and hex codes within the string argument. | `printf '%b' "Line1\nLine2"` |
+| Variable Assignment | `-v` | Prints the formatted string directly into a variable instead of outputting it to the terminal. | `printf -v my_var '%03d' 5` |
 ---
 *Note: This cheat sheet is a living document and will expand as I cover more advanced topics like awk, sed, find, and specific bash parameters.*
