@@ -240,5 +240,15 @@ This document serves as a quick reference guide for all the command-line tools, 
 | Shell Quoting | `%q` | Formats data in a shell-friendly way by automatically escaping special characters. Great for generating safe commands. | `printf '%q\n' "file name.txt"` |
 | Escape Codes | `%b` | Interprets raw backslash escape sequences (like `\n` or `\t`) and hex codes within the string argument. | `printf '%b' "Line1\nLine2"` |
 | Variable Assignment | `-v` | Prints the formatted string directly into a variable instead of outputting it to the terminal. | `printf -v my_var '%03d' 5` |
+
+## 🕒 15. Date & Time Management
+
+| Command / Syntax | Common Specifiers | Description | Example |
+| :--- | :--- | :--- | :--- |
+| `date` | `+"%FORMAT"` | Prints the current date or time. You can format it using standard `strftime` specifiers (like `%Y-%m-%d`) by prefixing the format string with a `+`. | `date +"%Y-%m-%d"` |
+| `printf '%(...)T'` | `-1` (current)<br>`-2` (shell start)<br>`[epoch]` | Bash built-in date formatting. Much faster than the `date` command! `-1` represents the current time, `-2` is the shell invocation time, and positive numbers are evaluated as epoch timestamps. | `printf 'Start: %(%H:%M:%S)T\n' -2` |
+| `$SECONDS` | *None* | A special shell variable that automatically tracks the number of seconds the current shell or script has been running. | `echo "Running for $SECONDS sec"` |
+| `$EPOCHSECONDS` | *None* | Returns the current time in seconds since the Unix Epoch (Jan 1, 1970). | `echo $EPOCHSECONDS` |
+| `$EPOCHREALTIME` | *None* | Returns the epoch time with microsecond resolution (floating point). Perfect for high-precision script execution profiling! | `echo $EPOCHREALTIME` |
 ---
 *Note: This cheat sheet is a living document and will expand as I cover more advanced topics like awk, sed, find, and specific bash parameters.*

@@ -94,7 +94,7 @@ Once the `scripts/` directories are populated, you can run any of the Bash scrip
 
 **Section 11: Formatting & Parsing Data**
 - [x] 11-00 Understanding printf
-- [ ] 11-01 Date Formatting
+- [x] 11-01 Date Formatting
 - [ ] 11-02 Regular Expressions
 - [ ] 11-03 Using mapfile
 
