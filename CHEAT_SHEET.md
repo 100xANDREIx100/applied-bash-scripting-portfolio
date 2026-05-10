@@ -69,6 +69,7 @@ This document serves as a quick reference guide for all the command-line tools, 
 | `+(list)` | Matches **1 or many** occurrences of the given patterns. | `ls +(a\|b).txt` |
 | `@(list)` | **Must match exactly** one of the given patterns. | `ls @(a\|b).txt` |
 | `!(list)` | **Negates** the glob; matches anything EXCEPT the given patterns. | `rm !(*.txt)` |
+
 ### Globbing Shell Options (`shopt`)
 *Note: Enable these using `shopt -s <option>` and disable with `shopt -u <option>`.*
 
@@ -76,8 +77,26 @@ This document serves as a quick reference guide for all the command-line tools, 
 | :--- | :--- | :--- |
 | `nullglob` | If a glob pattern matches nothing, it expands to nothing (an empty string) instead of passing the literal pattern string[cite: 20]. | `shopt -s nullglob` |
 | `dotglob` | Allows standard wildcards to match hidden files (dotfiles)[cite: 20]. | `shopt -s dotglob` |
-| `globstar` | Enables recursive globbing[cite: 20]. The `**` pattern will match all files and zero or more directories and subdirectories[cite: 20]. | `ls **/*.txt` |
+| `globstar` | Enables recursive globbing[cite: 20]. The `**` pattern will match all files and zero or more 
+directories and subdirectories[cite: 20]. | `ls **/*.txt` |
 
+### Regular Expressions (Regex)
+*Note: Used with tools like `grep -E`, `sed -E`, `awk`, or Bash's native `=~` operator.*
+
+| Pattern | Description | Example |
+| :--- | :--- | :--- |
+| `^` <br> `$` | Anchors. `^` matches the beginning of a line. `$` matches the end of a line. | `^Start`<br>`end$` |
+| `.` | Matches any single character. | `a.c` (matches abc, a1c) |
+| `*` | Matches zero or more of the *preceding* character. Combine with `.` to match "anything until" (`.*`). | `.*` (matches everything) |
+| `[0-9]{4}` | Character classes and quantifiers. `[0-9]` matches any digit. `{4}` means "exactly 4 times". | `[0-9]{4}` (matches 1234) |
+| `(char1\|char2)` | Capture group with an OR operator. Matches either 'char1' or 'char2' and captures the result for extraction. | `^(error\|warn).*$` |
+
+### Bash Native Regex Matching (`BASH_REMATCH`)
+| Command / Syntax | Description | Example |
+| :--- | :--- | :--- |
+| `[[ $var =~ regex ]]` | Native Bash regex comparison. **Warning:** Do NOT put quotes around the regex string, or Bash will evaluate it as literal text instead of a pattern! | `[[ $string =~ ^[0-9]+$ ]]` |
+
+| `${BASH_REMATCH[@]}` | A special array populated after a successful `=~` match. `[0]` holds the entire matched string, `[1]` holds the first capture group `(...)`, `[2]` the second, etc. | `echo "${BASH_REMATCH[1]}"` |
 ### Basic Regular Expressions (Text Matching)
 | Symbol | Description | Example |
 | :--- | :--- | :--- |
