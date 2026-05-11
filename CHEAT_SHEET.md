@@ -269,5 +269,13 @@ directories and subdirectories[cite: 20]. | `ls **/*.txt` |
 | `$SECONDS` | *None* | A special shell variable that automatically tracks the number of seconds the current shell or script has been running. | `echo "Running for $SECONDS sec"` |
 | `$EPOCHSECONDS` | *None* | Returns the current time in seconds since the Unix Epoch (Jan 1, 1970). | `echo $EPOCHSECONDS` |
 | `$EPOCHREALTIME` | *None* | Returns the epoch time with microsecond resolution (floating point). Perfect for high-precision script execution profiling! | `echo $EPOCHREALTIME` |
+
+## 📖 16. Parsing Data into Arrays (`mapfile` / `readarray`)
+
+| Command / Syntax | Common Flags & Meanings | Description | Example |
+| :--- | :--- | :--- | :--- |
+| `mapfile` <br> `readarray` | `-t` (trim newlines)<br>`-n` (limit lines) | Reads standard input or a file directly into an indexed array variable. Always use `-t` unless you specifically want to keep the `\n` character at the end of each line! | `mapfile -t my_arr < file.txt` |
+| `-n [count]` | *None* | Limits the read operation to the first `count` lines. | `mapfile -t -n 5 arr < file.txt` |
+| `-C [callback]` <br> `-c [chunk]` | *None* | Fires a `callback` function every time a certain `chunk` of lines is read. Great for showing progress bars when processing massive files. | `mapfile -C my_func -c 100 arr < file.txt` |
 ---
 *Note: This cheat sheet is a living document and will expand as I cover more advanced topics like awk, sed, find, and specific bash parameters.*

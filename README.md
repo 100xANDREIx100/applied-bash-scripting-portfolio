@@ -96,7 +96,7 @@ Once the `scripts/` directories are populated, you can run any of the Bash scrip
 - [x] 11-00 Understanding printf
 - [x] 11-01 Date Formatting
 - [x] 11-02 Regular Expressions
-- [ ] 11-03 Using mapfile
+- [x] 11-03 Using mapfile
 
 **Section 12: Advanced Conditionals & Strings**
 - [ ] 12-00 Brackets vs. Test
