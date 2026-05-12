@@ -99,7 +99,7 @@ Once the `scripts/` directories are populated, you can run any of the Bash scrip
 - [x] 11-03 Using mapfile
 
 **Section 12: Advanced Conditionals & Strings**
-- [ ] 12-00 Brackets vs. Test
+- [x] 12-00 Brackets vs. Test
 - [ ] 12-01 Special Strings
 
 **Section 13: Inter-Process Communication**

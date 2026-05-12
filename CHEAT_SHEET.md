@@ -277,5 +277,16 @@ directories and subdirectories[cite: 20]. | `ls **/*.txt` |
 | `mapfile` <br> `readarray` | `-t` (trim newlines)<br>`-n` (limit lines) | Reads standard input or a file directly into an indexed array variable. Always use `-t` unless you specifically want to keep the `\n` character at the end of each line! | `mapfile -t my_arr < file.txt` |
 | `-n [count]` | *None* | Limits the read operation to the first `count` lines. | `mapfile -t -n 5 arr < file.txt` |
 | `-C [callback]` <br> `-c [chunk]` | *None* | Fires a `callback` function every time a certain `chunk` of lines is read. Great for showing progress bars when processing massive files. | `mapfile -C my_func -c 100 arr < file.txt` |
+
+## ⚖️ 17. Advanced Conditionals and Strings
+
+| Command / Syntax | Common Flags & Meanings | Description | Example |
+| :--- | :--- | :--- | :--- |
+| `[` <br> `test` | *None* | POSIX standard test command. Susceptible to word-splitting and filename expansion if variables aren't quoted perfectly. | `[ "$var" = "test" ]` |
+| `[[ ... ]]` | *None* | Modern Bash keyword for testing. Much safer than `[`. It prevents word splitting, understands logic operators (`&&`, `||`), and supports regex/globbing natively. | `[[ -z $var ]]` |
+| `[[ $a == pattern ]]` | *None* | Pattern matching. Inside `[[ ]]`, if the right-hand string is unquoted, Bash treats it as a glob pattern (like `*.jpg`). | `[[ $file == *.jpg ]]` *(Matches any jpeg)* |
+| `[[ $a == "string" ]]` | *None* | Literal match. Quoting the right-hand side strips its special meaning, forcing an exact literal string comparison. | `[[ $file == "*.jpg" ]]` *(Matches literally "*.jpg")* |
+| `>` / `<` | *None* | String comparison operators. Evaluates lexicographically (alphabetical order). **Note:** Only use inside `[[ ]]`, otherwise they act as redirection! | `[[ $word1 > $word2 ]]` |
+| `-gt` / `-lt` | *None* | Numerical comparison operators. Used strictly for evaluating integers (greater than / less than). | `[[ $num1 -gt $num2 ]]` |
 ---
 *Note: This cheat sheet is a living document and will expand as I cover more advanced topics like awk, sed, find, and specific bash parameters.*
