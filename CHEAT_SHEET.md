@@ -288,5 +288,16 @@ directories and subdirectories[cite: 20]. | `ls **/*.txt` |
 | `[[ $a == "string" ]]` | *None* | Literal match. Quoting the right-hand side strips its special meaning, forcing an exact literal string comparison. | `[[ $file == "*.jpg" ]]` *(Matches literally "*.jpg")* |
 | `>` / `<` | *None* | String comparison operators. Evaluates lexicographically (alphabetical order). **Note:** Only use inside `[[ ]]`, otherwise they act as redirection! | `[[ $word1 > $word2 ]]` |
 | `-gt` / `-lt` | *None* | Numerical comparison operators. Used strictly for evaluating integers (greater than / less than). | `[[ $num1 -gt $num2 ]]` |
+
+### String Quoting & Escaping
+
+| Command / Syntax | Description | Example |
+| :--- | :--- | :--- |
+| `"text $var"` | Double quotes. Interprets and expands variables inside the string, but treats most other text literally. | `echo "Hello $USER"` |
+| `$'...'` | ANSI-C Quoting. Expands backslash-escaped special characters directly within the string without needing `printf` or `echo -e`. | `echo $'Line1\nLine2'` |
+| `\n` | Newline character (moves output to the next line). | `echo $'A\nB'` |
+| `\t` | Horizontal tab character. | `echo $'Col1\tCol2'` |
+| `\v` | Vertical tab character. | `echo $'A\vB'` |
+| `\b` | Backspace character (moves the cursor back one space, overwriting the previous character). | `echo $'ABC\bD'` *(Outputs: ABD)* |
 ---
 *Note: This cheat sheet is a living document and will expand as I cover more advanced topics like awk, sed, find, and specific bash parameters.*
