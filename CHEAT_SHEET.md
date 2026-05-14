@@ -299,5 +299,17 @@ directories and subdirectories[cite: 20]. | `ls **/*.txt` |
 | `\t` | Horizontal tab character. | `echo $'Col1\tCol2'` |
 | `\v` | Vertical tab character. | `echo $'A\vB'` |
 | `\b` | Backspace character (moves the cursor back one space, overwriting the previous character). | `echo $'ABC\bD'` *(Outputs: ABD)* |
+
+## 🚦 18. Inter-Process Communication & Job Control
+
+| Command / Syntax | Common Flags & Meanings | Description | Example |
+| :--- | :--- | :--- | :--- |
+| `trap` | `-l` (list signals) | Intercepts system signals and executes a specific command or function instead. Use `trap -l` to see all available signals on your system. | `trap 'echo "Caught Ctrl+C!"' SIGINT` |
+| `trap ... EXIT` | *None* | A special pseudo-signal. Executes the specified command exactly when the script exits, regardless of whether it succeeded or failed. Perfect for cleaning up temporary files! | `trap 'rm /tmp/tempfile' EXIT` |
+| `trap ... DEBUG` | *None* | A special pseudo-signal. Executes the specified command *before* every single standard command in the script runs. | `trap 'echo "Running next..."' DEBUG` |
+| `Ctrl+Z` | *None* | Keyboard shortcut that sends a `SIGTSTP` signal, immediately suspending (pausing) the currently running foreground process. | *(Press `Ctrl+Z` in the terminal)* |
+| `bg` | *None* | Background. Resumes a suspended process, but lets it run invisibly in the background so you can keep using your terminal. | `bg` |
+| `fg` | *None* | Foreground. Brings a backgrounded or suspended process back to the foreground so you can interact with it again. | `fg` |
+| `kill` | `%1` (job 1)<br>`%%` (last job) | Sends a signal to a process. While normally used with PIDs, you can use `%` to kill background jobs managed by the current shell. | `kill %1`<br>`kill %%` |
 ---
 *Note: This cheat sheet is a living document and will expand as I cover more advanced topics like awk, sed, find, and specific bash parameters.*

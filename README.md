@@ -103,7 +103,7 @@ Once the `scripts/` directories are populated, you can run any of the Bash scrip
 - [x] 12-01 Special Strings
 
 **Section 13: Inter-Process Communication**
-- [ ] 13-00 Trap Signals
+- [x] 13-00 Trap Signals
 - [ ] 13-01 Named Pipes
 
 **Section 14: Terminal User Interfaces (TUI)**
