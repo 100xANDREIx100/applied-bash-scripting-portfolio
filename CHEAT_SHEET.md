@@ -311,5 +311,8 @@ directories and subdirectories[cite: 20]. | `ls **/*.txt` |
 | `bg` | *None* | Background. Resumes a suspended process, but lets it run invisibly in the background so you can keep using your terminal. | `bg` |
 | `fg` | *None* | Foreground. Brings a backgrounded or suspended process back to the foreground so you can interact with it again. | `fg` |
 | `kill` | `%1` (job 1)<br>`%%` (last job) | Sends a signal to a process. While normally used with PIDs, you can use `%` to kill background jobs managed by the current shell. | `kill %1`<br>`kill %%` |
+| `mkfifo` | *None* | Creates a named pipe (FIFO) on the filesystem. Writing to or reading from it blocks (waits) until another process connects to the other end. Perfect for synchronizing processes. | `mkfifo my_pipe`<br>`echo "data" > my_pipe` |
+| `&` | *None* | Appended to the end of a command, it runs that command asynchronously in the background, immediately returning control of the terminal to you. | `long_script.sh &` |
+| `exec` | *None* | Replaces the current shell process with the specified command. It is also heavily used in IPC to open, close, or redirect custom file descriptors. | `exec 3<> my_pipe` |
 ---
 *Note: This cheat sheet is a living document and will expand as I cover more advanced topics like awk, sed, find, and specific bash parameters.*

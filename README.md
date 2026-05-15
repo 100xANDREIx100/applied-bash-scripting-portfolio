@@ -104,7 +104,7 @@ Once the `scripts/` directories are populated, you can run any of the Bash scrip
 
 **Section 13: Inter-Process Communication**
 - [x] 13-00 Trap Signals
-- [ ] 13-01 Named Pipes
+- [x] 13-01 Named Pipes
 
 **Section 14: Terminal User Interfaces (TUI)**
 - [ ] 14-00 Color Output
