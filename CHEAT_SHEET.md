@@ -314,5 +314,16 @@ directories and subdirectories[cite: 20]. | `ls **/*.txt` |
 | `mkfifo` | *None* | Creates a named pipe (FIFO) on the filesystem. Writing to or reading from it blocks (waits) until another process connects to the other end. Perfect for synchronizing processes. | `mkfifo my_pipe`<br>`echo "data" > my_pipe` |
 | `&` | *None* | Appended to the end of a command, it runs that command asynchronously in the background, immediately returning control of the terminal to you. | `long_script.sh &` |
 | `exec` | *None* | Replaces the current shell process with the specified command. It is also heavily used in IPC to open, close, or redirect custom file descriptors. | `exec 3<> my_pipe` |
+
+## 🎨 19. Terminal User Interfaces (TUI) & Colors
+
+| Command / Syntax | Common Codes | Description | Example |
+| :--- | :--- | :--- | :--- |
+| `\e[...m` | `0` (reset)<br>`1` (bold) | ANSI Escape Sequence. Used with `echo -e` or `printf` to apply raw color and formatting directly to the terminal. Always end with `\e[0m` to reset! | `printf "\e[1mBold Text\e[0m\n"` |
+| `\e[3Xm` <br> `\e[4Xm` | `30-37` (text)<br>`40-47` (bg) | Standard 8-color palette. `3X` sets the foreground (text) color, and `4X` sets the background color. | `printf "\e[33mYellow Text\e[0m\n"` |
+| `\e[38;5;Xm` | `0-255` | 256-color mode. Allows you to pick from a standardized extended color palette. | `printf "\e[38;5;208mOrange\e[0m\n"` |
+| `\e[38;2;R;G;Bm` | `R;G;B` | True Color mode. Provide Red, Green, and Blue values (0-255) for millions of color combinations. | `printf "\e[38;2;255;0;128mPink\e[0m\n"` |
+| `tput` | `bold` (bold text)<br>`sgr0` (reset text)<br>`setaf` (fg color) | Terminal capabilities utility. A much more readable alternative to raw ANSI codes. Prints the correct escape sequence for your specific terminal. | `tput setaf 3; echo "Yellow"; tput sgr0` |
+| `tput reset` <br> `reset` | *None* | Completely resets and clears the terminal, fixing it if raw binary or broken escape codes corrupt the display. | `reset` |
 ---
 *Note: This cheat sheet is a living document and will expand as I cover more advanced topics like awk, sed, find, and specific bash parameters.*

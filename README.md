@@ -107,7 +107,7 @@ Once the `scripts/` directories are populated, you can run any of the Bash scrip
 - [x] 13-01 Named Pipes
 
 **Section 14: Terminal User Interfaces (TUI)**
-- [ ] 14-00 Color Output
+- [x] 14-00 Color Output
 - [ ] 14-01 Cursor Commands
 - [ ] 14-02 Is a TTY
 
