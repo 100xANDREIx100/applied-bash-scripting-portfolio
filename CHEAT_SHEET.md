@@ -325,5 +325,13 @@ directories and subdirectories[cite: 20]. | `ls **/*.txt` |
 | `\e[38;2;R;G;Bm` | `R;G;B` | True Color mode. Provide Red, Green, and Blue values (0-255) for millions of color combinations. | `printf "\e[38;2;255;0;128mPink\e[0m\n"` |
 | `tput` | `bold` (bold text)<br>`sgr0` (reset text)<br>`setaf` (fg color) | Terminal capabilities utility. A much more readable alternative to raw ANSI codes. Prints the correct escape sequence for your specific terminal. | `tput setaf 3; echo "Yellow"; tput sgr0` |
 | `tput reset` <br> `reset` | *None* | Completely resets and clears the terminal, fixing it if raw binary or broken escape codes corrupt the display. | `reset` |
+
+### Cursor Movement & Manipulation
+
+| Command / Syntax | Tput Equivalent | Description | Example |
+| :--- | :--- | :--- | :--- |
+| `\e7` <br> `\e[s` | `tput sc` | Saves the current cursor position in the terminal. | `printf "\e7"` |
+| `\e8` <br> `\e[u` | `tput rc` | Restores the cursor back to the last saved position. | `printf "\e8"` |
+| `\e[row;colH` | `tput cup R C` | Moves the cursor to an exact row and column coordinate on the screen. (Note: standard ANSI uses Row;Col order). | `printf "\e[10;5H"` *(Moves to row 10, col 5)* |
 ---
 *Note: This cheat sheet is a living document and will expand as I cover more advanced topics like awk, sed, find, and specific bash parameters.*
