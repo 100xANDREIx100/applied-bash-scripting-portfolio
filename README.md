@@ -109,7 +109,7 @@ Once the `scripts/` directories are populated, you can run any of the Bash scrip
 **Section 14: Terminal User Interfaces (TUI)**
 - [x] 14-00 Color Output
 - [x] 14-01 Cursor Commands
-- [ ] 14-02 Is a TTY
+- [x] 14-02 Is a TTY
 
 **Section 15: Environment Customization**
 - [ ] 15-00 PS1 Variable

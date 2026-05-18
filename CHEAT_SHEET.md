@@ -333,5 +333,11 @@ directories and subdirectories[cite: 20]. | `ls **/*.txt` |
 | `\e7` <br> `\e[s` | `tput sc` | Saves the current cursor position in the terminal. | `printf "\e7"` |
 | `\e8` <br> `\e[u` | `tput rc` | Restores the cursor back to the last saved position. | `printf "\e8"` |
 | `\e[row;colH` | `tput cup R C` | Moves the cursor to an exact row and column coordinate on the screen. (Note: standard ANSI uses Row;Col order). | `printf "\e[10;5H"` *(Moves to row 10, col 5)* |
+
+### TTY Detection (Is it a Terminal?)
+
+| Command / Syntax | Description | Example |
+| :--- | :--- | :--- |
+| `[ -t 1 ]` <br> `[[ -t 1 ]]` | TTY Check. Tests if file descriptor `1` (Standard Output) is open and refers to a terminal. If the user is piping your script (`./script.sh \| grep...`) or redirecting it to a file (`> log.txt`), this returns false. | `if [[ -t 1 ]]; then`<br>`  echo -e "\e[32mColor Text\e[0m"`<br>`else`<br>`  echo "Plain Text"`<br>`fi` |
 ---
 *Note: This cheat sheet is a living document and will expand as I cover more advanced topics like awk, sed, find, and specific bash parameters.*
