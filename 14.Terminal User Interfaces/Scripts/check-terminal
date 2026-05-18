@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+if [[ -t 1 ]]; then
+	tput setaf 2
+	echo stdout is a tty
+	tput sgr0
+else
+	echo stdout is not a tty
+fi
