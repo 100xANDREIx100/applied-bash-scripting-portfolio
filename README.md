@@ -112,7 +112,7 @@ Once the `scripts/` directories are populated, you can run any of the Bash scrip
 - [x] 14-02 Is a TTY
 
 **Section 15: Environment Customization**
-- [ ] 15-00 PS1 Variable
+- [x] 15-00 PS1 Variable
 - [ ] 15-01 Customizing Bash
 - [ ] 15-02 Readline Shortcuts
 

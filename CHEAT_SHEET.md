@@ -339,5 +339,23 @@ directories and subdirectories[cite: 20]. | `ls **/*.txt` |
 | Command / Syntax | Description | Example |
 | :--- | :--- | :--- |
 | `[ -t 1 ]` <br> `[[ -t 1 ]]` | TTY Check. Tests if file descriptor `1` (Standard Output) is open and refers to a terminal. If the user is piping your script (`./script.sh \| grep...`) or redirecting it to a file (`> log.txt`), this returns false. | `if [[ -t 1 ]]; then`<br>`  echo -e "\e[32mColor Text\e[0m"`<br>`else`<br>`  echo "Plain Text"`<br>`fi` |
+
+## ⚙️ 20. Environment Customization & History
+
+### Prompt (`PS1`) & Environment
+| Command / Syntax | Description | Example |
+| :--- | :--- | :--- |
+| `.bashrc` | The user-specific Bash configuration file. This is where you save your `export` statements, aliases, and `PS1` customizations so they load every time you open a terminal. | `nano ~/.bashrc` |
+| `export var` | Puts a variable into the global environment, making it available to all child processes and subshells. | `export MY_VAR="Hello"` |
+| `\[ ... \]` | Prompt escaping. **Crucial:** You must wrap all non-printing characters (like TUI color codes) in these brackets inside your `PS1` variable, or Bash will miscalculate the prompt length and break line-wrapping! | `PS1="\[\e[32m\]\u\[\e[0m\] $ "` |
+| `\H` | `PS1` specific escape sequence. Expands to the full hostname of your machine. | `PS1="\H: "` |
+
+### Bash History Expansion
+| Command / Shortcut | Description | Example |
+| :--- | :--- | :--- |
+| `!!` | Runs the very last command executed in your history. | `sudo !!` *(Runs last command with sudo)* |
+| `!$` | Grabs the last argument from the previous command. Great for acting on a file you just created or moved. | `mkdir new_folder`<br>`cd !$` |
+| `!n` | Runs the specific command number `n` directly from your history list. | `!105` |
+| `Ctrl+R` | Reverse history search. Opens a prompt to search backward through your command history. Pressing `Ctrl+R` again while inside jumps to the next oldest match. | *(Press `Ctrl+R` and start typing)* |
 ---
 *Note: This cheat sheet is a living document and will expand as I cover more advanced topics like awk, sed, find, and specific bash parameters.*
