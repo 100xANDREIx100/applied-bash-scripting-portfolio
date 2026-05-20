@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+. ./lib/greetingsParens || exit 1
+
+name='buffy'
+echo "name before greet : $name"
+#sol 3
+#(greet andrei)
+
+{ greet andrei | tr a o; } | nl
+echo "name after greet : $name"

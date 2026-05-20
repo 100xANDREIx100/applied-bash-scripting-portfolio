@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+#sol 1
+greet() {
+	local name=$1
+	echo "hi $name"
+}
+
+#sol 2
+goodbye() (
+	name=$1
+	echo "bye $name"
+)
+
+
+if !(return 2>/dev/null); then
+	greet me
+	goodbye you
+fi
+
