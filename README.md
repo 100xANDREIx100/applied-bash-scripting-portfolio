@@ -113,7 +113,7 @@ Once the `scripts/` directories are populated, you can run any of the Bash scrip
 
 **Section 15: Environment Customization**
 - [x] 15-00 PS1 Variable
-- [ ] 15-01 Customizing Bash
+- [x] 15-01 Customizing Bash
 - [ ] 15-02 Readline Shortcuts
 
 **Section 16: Common Bash Pitfalls**

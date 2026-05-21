@@ -357,5 +357,13 @@ directories and subdirectories[cite: 20]. | `ls **/*.txt` |
 | `!$` | Grabs the last argument from the previous command. Great for acting on a file you just created or moved. | `mkdir new_folder`<br>`cd !$` |
 | `!n` | Runs the specific command number `n` directly from your history list. | `!105` |
 | `Ctrl+R` | Reverse history search. Opens a prompt to search backward through your command history. Pressing `Ctrl+R` again while inside jumps to the next oldest match. | *(Press `Ctrl+R` and start typing)* |
+
+### Quality of Life Shell Options (`shopt`)
+*Note: Add these `shopt -s` commands to your `~/.bashrc` to make them permanent!*
+
+| Option | Description | Example |
+| :--- | :--- | :--- |
+| `cdspell` | Automatically corrects minor typos ("minjelled words") in directory names when using `cd`. It prints the corrected path and enters it. Only works in interactive shells! | `shopt -s cdspell`<br>`cd /ect` *(enters /etc)* |
+| `autocd` | Allows you to change into a directory simply by typing its path, completely skipping the `cd` command. | `shopt -s autocd`<br>`/var/log` *(enters /var/log)* |
 ---
 *Note: This cheat sheet is a living document and will expand as I cover more advanced topics like awk, sed, find, and specific bash parameters.*
