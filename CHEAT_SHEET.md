@@ -365,5 +365,21 @@ directories and subdirectories[cite: 20]. | `ls **/*.txt` |
 | :--- | :--- | :--- |
 | `cdspell` | Automatically corrects minor typos ("minjelled words") in directory names when using `cd`. It prints the corrected path and enters it. Only works in interactive shells! | `shopt -s cdspell`<br>`cd /ect` *(enters /etc)* |
 | `autocd` | Allows you to change into a directory simply by typing its path, completely skipping the `cd` command. | `shopt -s autocd`<br>`/var/log` *(enters /var/log)* |
+
+### Readline Keyboard Shortcuts
+*Note: These shortcuts work in Bash, as well as most other Linux terminal tools that use the Readline library.*
+
+| Shortcut | Description |
+| :--- | :--- |
+| `Ctrl+A` | Move the cursor directly to the **beginning** of the line. |
+| `Ctrl+E` | Move the cursor directly to the **end** of the line. |
+| `Ctrl+F` / `Ctrl+B` | Move the cursor **forward** or **backward** exactly one character. |
+| `Alt+F` / `Alt+B` | Jump the cursor **forward** or **backward** exactly one entire word. |
+| `Ctrl+U` | Delete everything from the current cursor position to the **left** (beginning of the line). |
+| `Ctrl+K` | Delete everything from the current cursor position to the **right** (end of the line). |
+| `Ctrl+W` | Delete the **word** directly behind the cursor. |
+| `Ctrl+T` | Swap (transpose) the character under the cursor with the one behind it. |
+| `Alt+T` | Swap (transpose) the word under the cursor with the one behind it. |
+| `Ctrl+P` / `Ctrl+N` | Fetch the **previous** or **next** command from your history (same as Up/Down arrows). |
 ---
 *Note: This cheat sheet is a living document and will expand as I cover more advanced topics like awk, sed, find, and specific bash parameters.*
