@@ -117,7 +117,7 @@ Once the `scripts/` directories are populated, you can run any of the Bash scrip
 - [x] 15-02 Readline Shortcuts
 
 **Section 16: Common Bash Pitfalls**
-- [ ] 16-00 Pitfall: ls
+- [x] 16-00 Pitfall: ls
 - [ ] 16-01 Aliases with Arguments
 - [ ] 16-02 Pitfall: String Length
 
