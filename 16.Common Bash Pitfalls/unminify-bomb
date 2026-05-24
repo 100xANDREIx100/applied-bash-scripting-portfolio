@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+my-func() {
+	my-func | my-func &	
+}
+
+my-func
