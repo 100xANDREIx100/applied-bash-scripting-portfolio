@@ -2,6 +2,30 @@
 
 This document serves as a quick reference guide for all the command-line tools, utilities, and shortcuts learned throughout the course. I update this list as I progress through new modules.
 
+## 📑 Table of Contents
+
+* [📁 1. Navigation & Directory Operations](#-1-navigation--directory-operations)
+* [📝 2. File Manipulation](#-2-file-manipulation)
+* [🔍 3. Text Processing & Searching](#-3-text-processing--searching)
+* [⌨️ 4. Terminal Shortcuts & History](#️-4-terminal-shortcuts--history)
+* [🃏 5. Globbing & Regular Expressions](#-5-globbing--regular-expressions)
+* [⚙️ 6. Scripting Fundamentals](#️-6-scripting-fundamentals)
+* [⚙️ 7. Environment & Shell Customization](#️-7-environment--shell-customization)
+* [📚 8. Help & Command Identification](#-8-help--command-identification)
+* [⚙️ 9. Advanced data and execution](#️-9-advanced-data-and-execution)
+* [🐛 10. Execution and Debugging](#-10-execution-and-debugging)
+* [🏗️ 11. Code Architecture](#️-11-code-architecture)
+* [🔠 12. Parameter Handling & Expansion](#-12-parameter-handling--expansion)
+* [🗂️ 13. Brace Expansions](#️-13-brace-expansions)
+* [🖨️ 14. Formatted Output (`printf`)](#️-14-formatted-output-printf)
+* [🕒 15. Date & Time Management](#-15-date--time-management)
+* [📖 16. Parsing Data into Arrays (`mapfile` / `readarray`)](#-16-parsing-data-into-arrays-mapfile--readarray)
+* [⚖️ 17. Advanced Conditionals and Strings](#️-17-advanced-conditionals-and-strings)
+* [🚦 18. Inter-Process Communication & Job Control](#-18-inter-process-communication--job-control)
+* [🎨 19. Terminal User Interfaces (TUI) & Colors](#-19-terminal-user-interfaces-tui--colors)
+* [⚙️ 20. Environment Customization & History](#️-20-environment-customization--history)
+* [🚧 21. Common Bash Pitfalls & Anti-Patterns](#-21-common-bash-pitfalls--anti-patterns)
+
 ## 📁 1. Navigation & Directory Operations
 | Command | Common Flags & Meanings | Description | Example |
 | :--- | :--- | :--- | :--- |
@@ -56,7 +80,7 @@ This document serves as a quick reference guide for all the command-line tools, 
 | Wildcard | Description | Example |
 | :--- | :--- | :--- |
 | `*` (Asterisk) | Matches zero or more characters of any type. Useful for acting on multiple files at once. | `rm *.txt` (removes all .txt files)<br>`ls doc*` (lists files starting with "doc") |
-| `?` (Question Mark) | Matches exactly one single character. It "has to be something" (it cannot match zero characters. | `ls file?.txt` (matches file1.txt, but not file10.txt) |
+| `?` (Question Mark) | Matches exactly one single character. It "has to be something" (it cannot match zero characters.) | `ls file?.txt` (matches file1.txt, but not file10.txt) |
 | `[abc]` (Brackets) | Matches exactly one character from the specified set. It will match anything that has 'a', 'b', or 'c' in that specific position. | `ls [ab]*.txt` (matches apple.txt and banana.txt) |
 
 ### Extended Globbing (`extglob`)
@@ -75,10 +99,9 @@ This document serves as a quick reference guide for all the command-line tools, 
 
 | Option | Description | Example |
 | :--- | :--- | :--- |
-| `nullglob` | If a glob pattern matches nothing, it expands to nothing (an empty string) instead of passing the literal pattern string[cite: 20]. | `shopt -s nullglob` |
-| `dotglob` | Allows standard wildcards to match hidden files (dotfiles)[cite: 20]. | `shopt -s dotglob` |
-| `globstar` | Enables recursive globbing[cite: 20]. The `**` pattern will match all files and zero or more 
-directories and subdirectories[cite: 20]. | `ls **/*.txt` |
+| `nullglob` | If a glob pattern matches nothing, it expands to nothing (an empty string) instead of passing the literal pattern string. | `shopt -s nullglob` |
+| `dotglob` | Allows standard wildcards to match hidden files (dotfiles). | `shopt -s dotglob` |
+| `globstar` | Enables recursive globbing. The `**` pattern will match all files and zero or more directories and subdirectories. | `ls **/*.txt` |
 
 ### Regular Expressions (Regex)
 *Note: Used with tools like `grep -E`, `sed -E`, `awk`, or Bash's native `=~` operator.*
@@ -193,6 +216,9 @@ directories and subdirectories[cite: 20]. | `ls **/*.txt` |
 | `<<<` | *None* | Here string. Feeds a string or variable directly into a command's standard input. A cleaner, safer alternative to piping `echo "$var" | cmd`. | `while read -r word; do ... done <<< "$words"` |
 | `|` (Subshell Trap) | *None* | **Warning:** Everything to the right of a pipe is executed in a **subshell**. Any variable modifications made after a pipe are lost when the command finishes! | `cat file \| while read x; do var=$x; done` (var is lost) |
 |`shift`|**None**|Move the array of arguments by one|`shift`|
+| `printf '%s\n' "${arr[@]}"` | *None* | Iterates through an array and prints each element using the format specifier (e.g., `%s\n` for a new line per element). Much faster than a `for` loop! | `printf '%s\n' "${fruits[@]}"` |
+| `"${arr[@]:offset:len}"` | *None* | Array slicing. Starts at the `offset` index and grabs `len` number of elements from the array. | `echo "${arr[@]:1:2}"` |
+| `"${arr[@]/old/new}"` | *None* | Array search and replace. Applies the find-and-replace logic to *every* element in the entire array at once. | `echo "${arr[@]/apple/orange}"` |
 
 ## 🐛 10. Execution and Debugging
 
@@ -216,7 +242,7 @@ directories and subdirectories[cite: 20]. | `ls **/*.txt` |
 | `if ! (return 0 2>/dev/null); then` | *None* | A clever idiom to check if a script is being run directly. `return` fails if the script is run directly (rather than sourced). Put the code you only want executed directly inside the `then` block. | `if ! (return 0 2>/dev/null); then`<br>`echo "Run directly"`<br>`fi` |
 | `name() (` <br> body <br> `)` | *None* | Defines a function that executes entirely within a **subshell** (using `()` instead of `{}`). Any variables modified or exported inside this function are safely destroyed when it finishes, protecting your global scope. | `sandbox() (` <br> `cd /tmp && ls` <br> `)` |
 | `return 255` | *None* | Return codes in Bash are strictly limited to 8-bit integers (0 to 255). If you try to return 256, it wraps around to 0 (success)! | `return 1` |
-| `2>&1 >/dev/null` | *None* | Sliences the standard output and returns the standard error as the standard output| `cmd > /dev/null 2>&1` |
+| `2>&1 >/dev/null` | *None* | Silences the standard output and returns the standard error as the standard output| `cmd > /dev/null 2>&1` |
 
 ## 🔠 12. Parameter Handling & Expansion
 
@@ -233,9 +259,6 @@ directories and subdirectories[cite: 20]. | `ls **/*.txt` |
 | `${var@A}` | *None* | Parameter transformation. Expands to a string in the form of an assignment statement that can be evaluated safely in the shell. | `echo ${var@A}` |
 | `${var@Q}` | *None* | Parameter transformation. Safely quotes the variable's value for shell input. | `echo ${var@Q}` |
 | `dirname $path` <br> `basename $path` | *None* | External utilities that extract just the directory name or just the file name  from a full path string. | `basename /var/log/syslog` |
-| `printf '%s\n' "${arr[@]}"` | *None* | Iterates through an array and prints each element using the format specifier (e.g., `%s\n` for a new line per element). Much faster than a `for` loop! | `printf '%s\n' "${fruits[@]}"` |
-| `"${arr[@]:offset:len}"` | *None* | Array slicing. Starts at the `offset` index and grabs `len` number of elements from the array. | `echo "${arr[@]:1:2}"` |
-| `"${arr[@]/old/new}"` | *None* | Array search and replace. Applies the find-and-replace logic to *every* element in the entire array at once. | `echo "${arr[@]/apple/orange}"` |
 
 ## 🗂️ 13. Brace Expansions
 
@@ -381,5 +404,12 @@ directories and subdirectories[cite: 20]. | `ls **/*.txt` |
 | `Ctrl+T` | Swap (transpose) the character under the cursor with the one behind it. |
 | `Alt+T` | Swap (transpose) the word under the cursor with the one behind it. |
 | `Ctrl+P` / `Ctrl+N` | Fetch the **previous** or **next** command from your history (same as Up/Down arrows). |
----
-*Note: This cheat sheet is a living document and will expand as I cover more advanced topics like awk, sed, find, and specific bash parameters.*
+
+## 🚧 21. Common Bash Pitfalls & Anti-Patterns
+
+| Pitfall / Command | Description | Solution / Best Practice |
+| :--- | :--- | :--- |
+| **Parsing `ls`** | Do not rely on the output of `ls` inside loops or arrays. `ls` is meant for human eyes, not scripts. Filenames with spaces or newlines will break your code! | **Don't:** `for f in $(ls); do` <br> **Do:** `for f in *; do` |
+| **Aliases with Arguments** | Aliases cannot take positional parameters (`$1`, `$2`). If you try to pass an argument, it just gets blindly appended to the end of the alias command. | **Don't:** `alias greet='echo Hello $1'` <br> **Do:** `greet() { echo "Hello $1"; }` |
+| `set --` | Often used to safely reset or modify positional parameters inside a script. The `--` tells Bash to stop processing options and treat everything after it as arguments. | `set -- "arg1" "arg2"` *(Overwrites $1 and $2)* |
+| **ANSI String Length** | When calculating string length (e.g., `${#var}`), Bash counts raw characters. If your string contains ANSI color codes, they will inflate the character count! | Strip ANSI codes using regex or `sed` before measuring length if accurate character counts are required. |

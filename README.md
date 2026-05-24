@@ -1,7 +1,7 @@
 # 💻 Applied Bash Scripting Portfolio
 ![Bash](https://img.shields.io/badge/Language-Bash-4EAA25?style=for-the-badge&logo=gnu-bash&logoColor=white)
 ![Linux](https://img.shields.io/badge/Environment-Linux_VM-FCC624?style=for-the-badge&logo=linux&logoColor=black)
-![Status](https://img.shields.io/badge/Status-In_Progress-blue?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Completed-success?style=for-the-badge)
 
 This repository documents my journey mastering Linux shell scripting and system administration, following the intensive 7-hour [The Complete Bash Scripting Course](https://youtu.be/Sx9zG7wa4FA) by Dave Eddie. 
 
@@ -26,6 +26,13 @@ Once the `scripts/` directories are populated, you can run any of the Bash scrip
 1. Navigate to the specific section's scripts folder: `cd Section_03_Scripting_Fundamentals/scripts`
 2. Ensure the script has execution permissions: `chmod +x script_name.sh`
 3. Execute it: `./script_name.sh`
+
+## 🌟 Featured Scripts
+Here are a few highlights from the repository that demonstrate advanced Bash concepts:
+
+* **[Process Substitution](04.%20Advanced%20Data%20and%20Execution/Scripts/process-substitution):** Demonstrates reading outputs dynamically without falling into the "subshell trap," utilizing `< <(...)` and here-strings.
+* **[Terminal Capabilities](14.Terminal%20User%20Interfaces/Scripts/check-terminal):** A robust script that detects if standard output is an interactive TTY (`[[ -t 1 ]]`) and safely applies `tput` terminal color formatting.
+* **[Associative Arrays](04.%20Advanced%20Data%20and%20Execution/Scripts/associative-arrays):** Showcases the declaration, population, and iteration of key-value dictionaries in Bash (`declare -A`).
 
 ## 🚀 Course Syllabus & Progress Tracker
 
@@ -118,13 +125,13 @@ Once the `scripts/` directories are populated, you can run any of the Bash scrip
 
 **Section 16: Common Bash Pitfalls**
 - [x] 16-00 Pitfall: ls
-- [ ] 16-01 Aliases with Arguments
-- [ ] 16-02 Pitfall: String Length
+- [x] 16-01 Aliases with Arguments
+- [x] 16-02 Pitfall: String Length
 
 **Section 17: Outro & Bonus**
-- [ ] 17-00 Forkbomb
-- [ ] Bonus Credits
-- [ ] Bonus Debugging Session
+- [x] 17-00 Forkbomb
+- [x] Bonus Credits
+- [x] Bonus Debugging Session
 
 **Bonus Track: Vim Mastery (freeCodeCamp Course)**
 - [x] 01. Motivation & Power of Vim
